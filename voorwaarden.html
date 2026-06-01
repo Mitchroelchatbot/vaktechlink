@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algemene Voorwaarden | VakTechLink</title>
+<meta name="description" content="Algemene voorwaarden VakTechLink — tussenpersoon in de bouw">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--geel:#F5C21B;--geel-donker:#e0b000;--grijs:#4A4A4A;--lichtgrijs:#F5F5F2;--wit:#ffffff;--donker:#1F1F1F;--donker-card:#2A2A2A;}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',sans-serif;color:var(--grijs);background:var(--wit);overflow-x:hidden;line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:2px solid var(--geel);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:70px;backdrop-filter:blur(8px);}
+  .nav-logo img{height:40px;width:auto;object-fit:contain;display:block}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{text-decoration:none;color:var(--grijs);font-weight:500;font-size:0.95rem;transition:color 0.2s}
+  .nav-links a:hover{color:var(--geel)}
+  .nav-cta{background:var(--geel);color:var(--donker);padding:11px 22px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;transition:background 0.2s,transform 0.1s;}
+  .nav-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  footer{background:#141414;padding:48px 5% 24px;color:#999;}
+  .footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid #2A2A2A;}
+  .footer-brand .footer-logo{display:inline-block;margin-bottom:14px}
+  .footer-brand img{height:46px;width:auto;display:block}
+  .footer-brand p{font-size:0.88rem;color:#888;line-height:1.6;max-width:280px}
+  .footer-col h4{color:var(--geel);font-size:0.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+  .footer-col a,.footer-col p{display:block;color:#999;font-size:0.9rem;text-decoration:none;margin-bottom:8px;transition:color 0.2s;line-height:1.6;}
+  .footer-col a:hover{color:var(--geel)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.8rem;color:#666;}
+  .footer-bottom a{color:#666;text-decoration:none;margin-left:20px;transition:color 0.2s}
+  .footer-bottom a:hover{color:var(--geel)}
+  .wa-float{position:fixed;bottom:24px;right:24px;z-index:99;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:32px;height:32px;fill:white}
+
+  /* PAGE HEADER */
+  .page-header{
+    background:var(--donker);color:var(--wit);
+    padding:140px 5% 60px;
+    position:relative;overflow:hidden;
+  }
+  .page-header::before{
+    content:'';position:absolute;top:-100px;right:-150px;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(245,194,27,0.15) 0%,rgba(245,194,27,0) 70%);
+    border-radius:50%;
+  }
+  .page-header-inner{max-width:900px;margin:0 auto;position:relative;z-index:2}
+  .page-tag{
+    font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--geel);margin-bottom:14px;display:block;
+  }
+  .page-header h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(2.4rem,5vw,3.8rem);
+    font-weight:900;letter-spacing:-0.5px;line-height:1;
+    margin-bottom:14px;
+  }
+  .page-header p{font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:600px;line-height:1.6}
+
+  .breadcrumb{
+    display:flex;align-items:center;gap:8px;
+    font-size:0.85rem;color:rgba(255,255,255,0.5);
+    margin-bottom:20px;
+  }
+  .breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s}
+  .breadcrumb a:hover{color:var(--geel)}
+  .breadcrumb svg{width:12px;height:12px}
+
+  /* CONTENT */
+  .legal-content{
+    max-width:900px;margin:0 auto;padding:70px 5%;
+  }
+  .legal-content > .intro{
+    background:var(--lichtgrijs);
+    border-left:4px solid var(--geel);
+    padding:24px 28px;
+    border-radius:8px;
+    margin-bottom:48px;
+    font-style:italic;
+    color:var(--grijs);
+  }
+  .legal-content h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.7rem;font-weight:800;color:var(--donker);
+    margin-top:48px;margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--geel);
+    letter-spacing:-0.3px;
+  }
+  .legal-content h2:first-of-type{margin-top:0}
+  .legal-content h3{
+    font-weight:700;color:var(--donker);
+    font-size:1.1rem;margin-top:24px;margin-bottom:10px;
+  }
+  .legal-content p{
+    color:var(--grijs);font-size:0.97rem;line-height:1.75;
+    margin-bottom:14px;
+  }
+  .legal-content ol, .legal-content ul{
+    margin-left:24px;margin-bottom:18px;
+  }
+  .legal-content ol li, .legal-content ul li{
+    color:var(--grijs);font-size:0.97rem;line-height:1.75;
+    margin-bottom:10px;padding-left:6px;
+  }
+  .legal-content strong{color:var(--donker);font-weight:700}
+
+  .back-link{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--geel);text-decoration:none;font-weight:600;
+    font-size:0.95rem;margin-top:48px;
+    transition:gap 0.2s;
+  }
+  .back-link:hover{gap:14px}
+
+  @media(max-width:768px){
+    .nav-links{display:none}
+    .footer-top{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+    .wa-float{width:54px;height:54px;bottom:20px;right:20px}
+    .page-header{padding:120px 5% 50px}
+  }
+</style>
+</head>
+<body>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VakTechLink">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#diensten">Diensten</a>
+    <a href="index.html#werkwijze">Werkwijze</a>
+    <a href="index.html#projecten">Projecten</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+</nav>
+
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      <span>Algemene voorwaarden</span>
+    </div>
+    <span class="page-tag">Juridisch</span>
+    <h1>Algemene Voorwaarden</h1>
+    <p>Van toepassing op alle diensten van VakTechLink.</p>
+  </div>
+</section>
+
+<div class="legal-content">
+  <div class="intro">
+    Deze algemene voorwaarden zijn van toepassing op alle diensten van VakTechLink en worden aan de Opdrachtgever verstrekt voorafgaand aan het aangaan van de overeenkomst. De Opdrachtgever verklaart door ondertekening of schriftelijke bevestiging van de opdracht kennis te hebben genomen van deze voorwaarden en daarmee akkoord te gaan.
+  </div>
+
+  <h2>Artikel 1 — Definities</h2>
+  <p>In deze algemene voorwaarden hebben de onderstaande begrippen de volgende betekenis:</p>
+  <ol>
+    <li><strong>Opdrachtnemer:</strong> VakTechLink, ingeschreven bij de Kamer van Koophandel onder nummer 94546932, hierna ook "wij" of "ons" genoemd.</li>
+    <li><strong>Opdrachtgever:</strong> iedere natuurlijke of rechtspersoon die aan Opdrachtnemer een opdracht verstrekt voor de coördinatie van werkzaamheden, hierna ook "u" genoemd.</li>
+    <li><strong>Uitvoerder:</strong> een door Opdrachtnemer ingeschakelde zelfstandige derde (zzp'er) die (delen van) de overeengekomen werkzaamheden feitelijk uitvoert.</li>
+    <li><strong>Overeenkomst:</strong> iedere tussen Opdrachtgever en Opdrachtnemer gesloten overeenkomst inzake een opdracht, inclusief deze algemene voorwaarden.</li>
+  </ol>
+
+  <h2>Artikel 2 — Toepasselijkheid</h2>
+  <ol>
+    <li>Deze algemene voorwaarden zijn van toepassing op alle offertes, opdrachten, overeenkomsten en leveringen van diensten door Opdrachtnemer, tenzij uitdrukkelijk anders schriftelijk overeengekomen.</li>
+    <li>Afwijkingen of aanvullingen op deze voorwaarden zijn alleen geldig indien ze schriftelijk door ons zijn bevestigd.</li>
+    <li>De toepasselijkheid van eventuele inkoop- of andere voorwaarden van Opdrachtgever wordt hierbij uitdrukkelijk van de hand gewezen, tenzij wij schriftelijk anders hebben bevestigd.</li>
+    <li>Als en voor zover enige bepaling uit deze algemene voorwaarden nietig blijkt te zijn of vernietigd wordt, blijven de overige bepalingen onverminderd van kracht. Partijen zullen in dat geval in overleg treden om een vervangende bepaling overeen te komen die zo veel mogelijk aansluit bij het doel en de strekking van de oorspronkelijke bepaling.</li>
+    <li>Mondelinge toezeggingen of afspraken zijn alleen bindend indien deze schriftelijk of per e-mail door Opdrachtnemer zijn bevestigd.</li>
+  </ol>
+
+  <h2>Artikel 3 — Dienstverlening en rolverdeling</h2>
+  <ol>
+    <li>Opdrachtnemer treedt op als coördinator tussen Opdrachtgever en Uitvoerder. Wij selecteren een passende Uitvoerder voor de opdracht, maken afspraken over planning en uitvoering, en fungeren als het aanspreekpunt voor u als Opdrachtgever gedurende de opdracht.</li>
+    <li>De feitelijke uitvoering van de werkzaamheden gebeurt door de Uitvoerder. U bent ervan op de hoogte dat Opdrachtnemer zelf de werkzaamheden niet uitvoert. De door ons ingeschakelde Uitvoerder is een onafhankelijke partij en geen werknemer van ons.</li>
+    <li>Oplevering van het werk en eventuele nazorg geschieden in principe door de Uitvoerder, tenzij uitdrukkelijk anders is overeengekomen. Eventuele garanties op het uitgevoerde werk worden door de Uitvoerder verstrekt (zie ook artikel 4.3). Wij zullen wel behulpzaam zijn als aanspreekpunt om de communicatie hierover vlot te laten verlopen.</li>
+    <li>Voor iedere individuele opdracht zal Opdrachtnemer een afzonderlijke offerte, opdrachtbevestiging of overeenkomst met Opdrachtgever opstellen. Hierin worden de specifieke details van de opdracht vastgelegd, zoals de omschrijving van de werkzaamheden, locatie, startdatum/-tijd, vergoeding/prijs en eventuele bijzonderheden. Deze algemene voorwaarden maken onderdeel uit van elke dergelijke opdracht. In geval van tegenstrijdigheid tussen deze algemene voorwaarden en een individuele schriftelijke opdrachtbevestiging of overeenkomst, prevaleert de inhoud van die individuele bevestiging/overeenkomst.</li>
+    <li>Indien tijdens de uitvoering blijkt dat extra of afwijkende werkzaamheden gewenst zijn buiten de oorspronkelijk afgesproken scope, zullen partijen in overleg treden. Dergelijke aanvullende taken of wijzigingen in de opdracht dienen apart en schriftelijk te worden overeengekomen. Dit kan leiden tot een aanpassing van de planning en/of de prijs (zie ook artikel 7.2).</li>
+    <li>Opdrachtnemer is gerechtigd bij de uitvoering van de opdracht gebruik te maken van derden of, indien noodzakelijk, de aangewezen Uitvoerder te vervangen door een andere geschikte partij, zonder voorafgaand overleg, mits dit redelijk is gezien de omstandigheden (bijv. ziekte of overmacht).</li>
+    <li>Tussen Opdrachtnemer en de door haar ingeschakelde Uitvoerder bestaat uitdrukkelijk géén arbeidsrelatie. De Uitvoerder is een zelfstandig ondernemer en voert de werkzaamheden uit voor eigen rekening en risico. Opdrachtnemer draagt geen loonbelasting, sociale premies of andere werknemers gerelateerde lasten af en is daarvoor ook niet aansprakelijk. Opdrachtgever erkent en aanvaardt dat er geen gezagsverhouding bestaat tussen Opdrachtnemer en de Uitvoerder, zoals bedoeld in artikel 7:610 BW.</li>
+  </ol>
+
+  <h2>Artikel 4 — Aansprakelijkheid en garanties</h2>
+  <ol>
+    <li>Opdrachtnemer is aansprakelijk voor tekortkomingen in de coördinatie of communicatie voor zover die aan ons verwijtbaar zijn. Voor fouten of tekortkomingen in de feitelijke uitvoering van de werkzaamheden is de Uitvoerder zelf verantwoordelijk. De Uitvoerder verricht de werkzaamheden voor eigen rekening en risico en draagt zelf de aansprakelijkheid richting Opdrachtgever voor die uitvoering.</li>
+    <li>Opdrachtnemer is nimmer aansprakelijk voor indirecte schade, gevolgschade, gederfde winst of andere zakelijke verliezen van Opdrachtgever. Tevens zijn wij niet aansprakelijk voor schade of verliezen die voortvloeien uit fouten, tekortkomingen of nalatigheden van de Uitvoerder tijdens de uitvoering van de werkzaamheden.</li>
+    <li>Enige garanties met betrekking tot het uitgevoerde werk (zoals deugdelijkheid van materialen of duurzaamheid van het resultaat) worden verstrekt door de Uitvoerder die het werk heeft uitgevoerd. Opdrachtnemer zelf fungeert alleen als coördinator en garantstaat niet inhoudelijk voor het uitgevoerde werk. Wij zullen echter wel faciliteren in de afhandeling van klachten of garantievragen door deze door te geleiden naar de betreffende Uitvoerder (zie ook artikel 6).</li>
+    <li>Iedere aansprakelijkheid van Opdrachtnemer is beperkt tot ten hoogste het factuurbedrag van de betreffende opdracht. Indien en voor zover onze aansprakelijkheidsverzekering in een concreet geval dekking biedt voor de geleden schade, dan is onze aansprakelijkheid bovendien beperkt tot het bedrag dat onder die verzekering wordt uitgekeerd (incl. eventueel van toepassing zijnde eigen risico). Indien de verzekeraar om welke reden niet tot uitkering overgaat, geldt het factuurbedrag van de opdracht als maximale aansprakelijkheid.</li>
+    <li>Opdrachtgever vrijwaart Opdrachtnemer tegen alle aanspraken van derden (waaronder bijvoorbeeld schadeclaims van door Opdrachtgever ingeschakelde derden of betrokken omwonenden) die voortvloeien uit of verband houden met de uitvoering van de werkzaamheden door de Uitvoerder of het gebruik van onze diensten, tenzij er sprake is van opzet of bewuste roekeloosheid aan onze zijde.</li>
+    <li>Opdrachtnemer is niet aansprakelijk voor schade of kosten die voortvloeien uit het uitblijven van de (tijdige) komst van de Uitvoerder, het niet (tijdig) starten met de werkzaamheden of het tussentijds onderbreken daarvan, tenzij deze vertraging aantoonbaar te wijten is aan een verwijtbare tekortkoming van Opdrachtnemer zelf (zoals het niet doorgeven van correcte informatie of het niet verzorgen van tijdige afstemming). In alle andere gevallen betreft het een omstandigheid die onder de verantwoordelijkheid van de Uitvoerder valt.</li>
+  </ol>
+
+  <h2>Artikel 5 — Prijzen en betaling</h2>
+  <ol>
+    <li>Alle door ons gehanteerde of geoffreerde prijzen zijn inclusief onze coördinatiekosten en worden vooraf overeengekomen met Opdrachtgever, tenzij uitdrukkelijk anders vermeld. Er zal dus vooraf duidelijkheid zijn over de kosten van de opdracht, verdeeld in eventuele uitvoeringskosten en onze coördinatievergoeding.</li>
+    <li>De concrete prijs of vergoeding voor een specifieke opdracht wordt vastgelegd in de offerte of opdrachtbevestiging voor die opdracht. Deze algemene voorwaarden vermelden geen vaste tarieven; de hoogte van het bedrag komt per opdracht tot stand in de individuele overeenkomst tussen Opdrachtgever en Opdrachtnemer.</li>
+    <li>Betaling van facturen dient te geschieden binnen 7 dagen na de factuurdatum, tenzij schriftelijk anders is overeengekomen. Betalingen dienen te worden gedaan op het door ons aangegeven rekeningnummer onder vermelding van het factuurnummer.</li>
+    <li>Bij niet-tijdige betaling (overschrijding van de betalingstermijn) is Opdrachtgever van rechtswege in verzuim, zonder dat daarvoor een aparte ingebrekestelling vereist is. In dat geval zijn wij gerechtigd wettelijke rente in rekening te brengen vanaf de vervaldag van de factuur tot aan de dag van volledige betaling. Daarnaast komen alle redelijke incassokosten (zowel gerechtelijk als buitengerechtelijk) die wij moeten maken om de vordering te incasseren voor rekening van Opdrachtgever.</li>
+    <li>Opdrachtnemer behoudt zich het recht voor de uitvoering van haar verplichtingen op te schorten zolang Opdrachtgever in gebreke is met betaling. Dit betekent dat wij bij uitblijvende betaling de verdere coördinatie of aanvang/voortzetting van de werkzaamheden kunnen uitstellen totdat de openstaande vordering is voldaan. Opdrachtgever kan in zo'n geval geen aanspraak maken op enige compensatie voor eventuele vertraging.</li>
+  </ol>
+
+  <h2>Artikel 6 — Uitval van de Uitvoerder</h2>
+  <ol>
+    <li>Soms kan het gebeuren dat een door ons ingeschakelde Uitvoerder onverwacht wegvalt, bijvoorbeeld door faillissement of doordat hij niet meer bereikbaar is. Dat is vervelend voor alle partijen.</li>
+    <li>Als er in zo'n situatie door Opdrachtgever al een aanbetaling is gedaan die (geheel of gedeeltelijk) bestemd was voor de Uitvoerder, dan is Opdrachtnemer niet aansprakelijk voor het terugbetalen van dit bedrag. Het risico van de vooruitbetaling richting de Uitvoerder ligt bij Opdrachtgever.</li>
+    <li>Uiteraard zullen wij ons altijd inspannen om samen met u naar een passende oplossing te zoeken, zoals het inschakelen van een andere Uitvoerder of het ondersteunen bij contact met de oorspronkelijke Uitvoerder.</li>
+  </ol>
+
+  <h2>Artikel 7 — Verplichtingen van de Opdrachtgever</h2>
+  <ol>
+    <li>Opdrachtgever is gehouden om alle informatie, gegevens en instructies die nodig zijn voor een goede voorbereiding en uitvoering van de werkzaamheden tijdig, volledig en correct aan Opdrachtnemer te verstrekken.</li>
+    <li>Indien de werkzaamheden op locatie plaatsvinden, dient Opdrachtgever ervoor zorg te dragen dat de locatie goed toegankelijk, veilig en operationeel is. Alle noodzakelijke voorzieningen (zoals stroomvoorziening, sanitaire voorzieningen, parkeerplek en vrije werkruimte) dienen aanwezig en bruikbaar te zijn.</li>
+    <li>Opdrachtgever staat ervoor in dat er geen omstandigheden zijn die de uitvoering van de werkzaamheden onredelijk belemmeren of vertragen. Indien toch sprake is van vertraging, hinder of extra kosten doordat informatie ontbreekt of de locatie niet in orde is, komen de daaruit voortvloeiende extra kosten voor rekening van Opdrachtgever.</li>
+    <li>Indien Opdrachtgever derden inschakelt die invloed hebben op de uitvoering van de werkzaamheden door de Uitvoerder, dient hierover vooraf afstemming plaats te vinden met Opdrachtnemer.</li>
+    <li>Opdrachtgever is aansprakelijk voor alle schade die voortvloeit uit het niet naleven van de in dit artikel genoemde verplichtingen, tenzij deze schade aantoonbaar is veroorzaakt door Opdrachtnemer of de Uitvoerder.</li>
+  </ol>
+
+  <h2>Artikel 8 — Klachten en herstel</h2>
+  <ol>
+    <li>Klachten over (de uitvoering van) de werkzaamheden of over onze dienstverlening dienen binnen 5 werkdagen na ontdekking van het gebrek of probleem schriftelijk bij Opdrachtnemer te worden gemeld. Onder schriftelijk wordt ook verstaan per e-mail aan het bij ons bekende e-mailadres. In de klacht dient u zo gedetailleerd mogelijk te omschrijven wat de aard van de klacht is, zodat wij deze adequaat kunnen doorgeven aan de Uitvoerder.</li>
+    <li>Opdrachtnemer zal na ontvangst van een klacht deze zo spoedig mogelijk doorgeleiden naar de betreffende Uitvoerder en erop toezien dat de Uitvoerder de klacht serieus en adequaat afhandelt. Wij blijven hierbij uw aanspreekpunt en zullen de communicatie faciliteren, maar de feitelijke afhandeling (zoals herstelwerkzaamheden) zal doorgaans door de Uitvoerder zelf plaatsvinden.</li>
+    <li>Indien herstel of nazorg nodig is naar aanleiding van een gegronde klacht, komt dit voor rekening van de Uitvoerder, tenzij de fout aantoonbaar te wijten is aan een tekortkoming in onze coördinerende rol. In dat laatste geval zoeken we samen met u naar een passende oplossing. Het indienen van een klacht schort de betalingsverplichting van Opdrachtgever niet automatisch op; u blijft gehouden tijdig te betalen, tenzij wij schriftelijk anders overeenkomen.</li>
+  </ol>
+
+  <h2>Artikel 9 — Annulering en wijziging van de opdracht</h2>
+  <ol>
+    <li>Annulering van de opdracht door Opdrachtgever dient schriftelijk (per brief of e-mail) te gebeuren. Indien een opdracht wordt geannuleerd op een moment waarop het redelijk is dat door Opdrachtnemer reeds kosten zijn gemaakt of capaciteit is gereserveerd, behoudt Opdrachtnemer zich het recht voor deze kosten in rekening te brengen. Dit kan bijvoorbeeld zien op voorbereidingskosten, reeds gereserveerde tijd van de Uitvoerder of andere aantoonbare schade. Opdrachtnemer zal bij het in rekening brengen van dergelijke kosten zoveel mogelijk een redelijke specificatie verstrekken.</li>
+    <li>Wijzigingen in de opdracht (zoals uitstel van de datum, verandering van locatie of aanvullende werkzaamheden) kunnen alleen worden doorgevoerd na uitdrukkelijk akkoord van Opdrachtnemer. Een verzoek tot wijziging dient tijdig aan ons kenbaar te worden gemaakt, zodat wij dit met de Uitvoerder kunnen afstemmen. Aanpassingen in de opdracht kunnen leiden tot wijzigingen in de prijs en/of planning. Eventuele meerkosten of vertraging als gevolg van een wijziging zullen wij vooraf met u bespreken en schriftelijk bevestigen voordat de wijziging wordt doorgevoerd.</li>
+    <li>In het geval dat Opdrachtgever de opdracht geheel of gedeeltelijk annuleert nadat de werkzaamheden al zijn aangevangen, is Opdrachtgever gehouden om de reeds uitgevoerde werkzaamheden en gemaakte kosten volledig te vergoeden. Tussentijdse beëindiging van een opdracht door Opdrachtgever na de start van de werkzaamheden is in principe alleen mogelijk in goed overleg en met instemming van Opdrachtnemer, onder afwikkeling van de financiële consequenties daarvan.</li>
+  </ol>
+
+  <h2>Artikel 10 — Overmacht</h2>
+  <ol>
+    <li>Onder overmacht wordt verstaan elke omstandigheid buiten de wil en invloed van Opdrachtnemer (waaronder ook die van de ingeschakelde Uitvoerder) die nakoming van de overeenkomst tijdelijk of blijvend belemmert. Hieronder vallen in ieder geval, maar niet uitsluitend: extreme weersomstandigheden, natuurrampen, pandemieën, brand, overheidsmaatregelen, oorlog of oproer, verkeersstoringen, stroomuitval, alsmede ziekte, ongeval of onverwachte uitval van de toegewezen Uitvoerder. Dergelijke omstandigheden gelden als overmacht als ze de uitvoering van de opdracht onmogelijk maken of onredelijk bemoeilijken.</li>
+    <li>In geval van overmacht aan onze zijde of aan de zijde van de Uitvoerder zal Opdrachtnemer Opdrachtgever zo spoedig mogelijk op de hoogte stellen zodra duidelijk is dat de verplichtingen (tijdelijk) niet kunnen worden nagekomen. Partijen zullen in dat geval in goed overleg treden om een passende oplossing te vinden. Mogelijke oplossingen kunnen zijn: het verplaatsen van de werkzaamheden naar een latere datum, het inzetten van een vervangende Uitvoerder (indien beschikbaar), of het in onderling overleg annuleren van (het resterende deel van) de opdracht.</li>
+    <li>Zolang de overmachtssituatie voortduurt, worden onze verplichtingen opgeschort (uitstel van nakoming zonder enige vorm van boete of schadevergoeding). Indien de overmachtstoestand langer dan redelijkerwijs aanvaardbaar duurt, of indien vaststaat dat nakoming blijvend onmogelijk is, hebben zowel Opdrachtgever als Opdrachtnemer het recht om de overeenkomst schriftelijk te beëindigen voor het nog niet uitgevoerde deel, zonder dat er in dat geval een verplichting tot schadevergoeding bestaat. Mocht er al gedeeltelijk werk zijn verricht vóór de overmacht intreedt, dan zal Opdrachtgever het reeds uitgevoerde deel conform de afspraken moeten betalen.</li>
+    <li>Opdrachtnemer is niet aansprakelijk voor enige schade of kosten aan de zijde van Opdrachtgever als gevolg van een overmachtssituatie zoals beschreven in dit artikel. Wij zullen ons inspannen om de gevolgen en overlast voor u als klant zoveel mogelijk te beperken, maar eventuele resterende schade door vertraging of annulering ten gevolge van overmacht komt niet voor vergoeding in aanmerking.</li>
+  </ol>
+
+  <h2>Artikel 11 — Herroepingsrecht voor consumenten</h2>
+  <ol>
+    <li>Indien Opdrachtgever een consument is (natuurlijk persoon die niet handelt in de uitoefening van een beroep of bedrijf), heeft Opdrachtgever in principe het wettelijk recht om de overeenkomst zonder opgave van reden te ontbinden binnen een bedenktijd van 14 dagen na het sluiten van de overeenkomst. Indien Opdrachtgever van dit herroepingsrecht gebruik wil maken, dient hij dit binnen de 14 dagen schriftelijk (bij voorkeur per e-mail) aan ons kenbaar te maken.</li>
+    <li>Een consument doet afstand van het hierboven genoemde herroepingsrecht voor zover Opdrachtnemer met uitdrukkelijke toestemming van de consument is begonnen met de uitvoering van de werkzaamheden binnen de bedenktijd. Met andere woorden: als u als consument ons nadrukkelijk verzoekt om direct (of binnen 14 dagen) te starten met de uitvoering van de opdracht, dan vervalt het recht op ontbinding voor de diensten die al zijn geleverd op het moment van herroeping. Eventuele werkzaamheden die dan nog niet zijn uitgevoerd, zouden bij tijdige herroeping niet in rekening worden gebracht.</li>
+    <li>Het herroepingsrecht geldt niet voor zakelijke Opdrachtgevers (rechtspersonen of natuurlijke personen die handelen voor bedrijfs- of beroepsdoeleinden). Voor hen is de overeenkomst direct bindend na ondertekening of schriftelijke akkoordverklaring, en annulering is alleen mogelijk volgens de condities van artikel 8.</li>
+  </ol>
+
+  <h2>Artikel 12 — Intellectueel eigendom</h2>
+  <ol>
+    <li>Tenzij uitdrukkelijk schriftelijk anders is overeengekomen, blijven alle intellectuele eigendomsrechten op offertes, voorstellen, tekeningen, rapporten, adviezen, werkomschrijvingen, foto's en andere materialen of resultaten die door of via Opdrachtnemer worden verstrekt of ontwikkeld, berusten bij Opdrachtnemer of de betreffende Uitvoerder.</li>
+    <li>Zonder voorafgaande schriftelijke toestemming van Opdrachtnemer is het Opdrachtgever niet toegestaan deze materialen of resultaten te verveelvoudigen, openbaar te maken, aan te passen, over te dragen of voor andere doeleinden te gebruiken dan waarvoor ze zijn verstrekt.</li>
+    <li>Indien Opdrachtgever in strijd met dit artikel handelt, is zij gehouden tot vergoeding van de door Opdrachtnemer of de rechthebbende geleden schade, onverminderd het recht op aanvullende (rechts)maatregelen.</li>
+  </ol>
+
+  <h2>Artikel 13 — Toepasselijk recht en geschillen</h2>
+  <ol>
+    <li>Op alle rechtsverhoudingen tussen Opdrachtgever en Opdrachtnemer is uitsluitend Nederlands recht van toepassing. Ook als een verplichting geheel of gedeeltelijk in het buitenland wordt uitgevoerd of als Opdrachtgever in het buitenland woonplaats heeft, blijft Nederlands recht gelden voor de interpretatie en uitvoering van de overeenkomst en deze algemene voorwaarden.</li>
+    <li>Partijen zullen in eerste instantie altijd proberen geschillen of onenigheden in onderling overleg op te lossen. Mocht dit niet tot een bevredigende oplossing leiden, dan zullen geschillen worden voorgelegd aan de bevoegde rechter. Tenzij dwingend recht anders voorschrijft, is bij uitsluiting bevoegd de rechtbank in het arrondissement waar Opdrachtnemer statutair gevestigd is. Voor consumenten (Opdrachtgevers die niet handelen in uitoefening van een beroep of bedrijf) geldt dat zij desgewenst ook het geschil kunnen voorleggen aan de volgens de wet bevoegde rechter, indien deze afwijkt van voornoemde forumkeuze.</li>
+  </ol>
+
+  <h2>Artikel 14 — Slotbepalingen</h2>
+  <ol>
+    <li>Opdrachtnemer is te allen tijde gerechtigd deze algemene voorwaarden eenzijdig te wijzigen of aan te vullen. Wijzigingen gelden ook voor reeds bestaande overeenkomsten, mits deze wijzigingen schriftelijk aan Opdrachtgever zijn medegedeeld. In geval van materiële wijzigingen zal Opdrachtgever, indien hij consument is, de mogelijkheid hebben om de overeenkomst te ontbinden indien hij niet akkoord gaat met de wijziging.</li>
+    <li>In geval enige bepaling van deze algemene voorwaarden nietig of onafdwingbaar blijkt te zijn, laat dat de geldigheid van de overige bepalingen onverlet. Partijen zullen in dat geval in goed overleg treden om een vervangende bepaling op te stellen die juridisch geldig is en qua strekking zo veel mogelijk aansluit bij de oorspronkelijke bepaling.</li>
+    <li>Zonder uitdrukkelijke schriftelijke toestemming van Opdrachtnemer is Opdrachtgever niet gerechtigd rechten of verplichtingen uit de overeenkomst over te dragen aan derden. Opdrachtnemer is wel bevoegd haar rechten en verplichtingen uit de overeenkomst en deze voorwaarden over te dragen aan een derde in het kader van bijvoorbeeld bedrijfsuitvoering of -overname; in zo'n geval zal Opdrachtgever hiervan op de hoogte gesteld worden.</li>
+    <li>Bij de uitvoering van de overeenkomst en de daarmee samenhangende verwerking van persoonsgegevens wordt te allen tijde gehandeld in overeenstemming met de toepasselijke privacywetgeving, waaronder de Algemene Verordening Gegevensbescherming (AVG). Opdrachtnemer treft passende technische en organisatorische maatregelen om de persoonsgegevens van Opdrachtgever te beschermen. Nadere informatie hierover is te vinden in onze <a href="privacy.html" style="color:var(--geel);text-decoration:underline">privacyverklaring</a>.</li>
+  </ol>
+
+  <a href="index.html" class="back-link">← Terug naar home</a>
+</div>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="images/logo-wit.png" alt="VakTechLink"></div>
+      <p>Tussenpersoon in de bouw voor particulier en bedrijf. Wij koppelen jou aan de juiste vakman.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:0631558448">📞 06 31 55 84 48</a>
+      <a href="mailto:info@vaktechlink.nl">✉ info@vaktechlink.nl</a>
+      <a href="https://wa.me/31631558448" target="_blank">💬 WhatsApp ons</a>
+    </div>
+    <div class="footer-col">
+      <h4>Werkgebied</h4>
+      <p>📍 Eindhoven</p>
+      <p>Zuid-Oost & Oost Brabant</p>
+    </div>
+    <div class="footer-col">
+      <h4>Bedrijfsgegevens</h4>
+      <p>KvK: 94546932</p>
+      <p>BTW: NL005091587B45</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 VakTechLink — Vakmanschap Verbindt</div>
+    <div>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20een%20vraag" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacyverklaring | VakTechLink</title>
+<meta name="description" content="Privacyverklaring VakTechLink — hoe wij omgaan met uw persoonsgegevens">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--geel:#F5C21B;--geel-donker:#e0b000;--grijs:#4A4A4A;--lichtgrijs:#F5F5F2;--wit:#ffffff;--donker:#1F1F1F;--donker-card:#2A2A2A;}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',sans-serif;color:var(--grijs);background:var(--wit);overflow-x:hidden;line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:2px solid var(--geel);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:70px;backdrop-filter:blur(8px);}
+  .nav-logo img{height:40px;width:auto;object-fit:contain;display:block}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{text-decoration:none;color:var(--grijs);font-weight:500;font-size:0.95rem;transition:color 0.2s}
+  .nav-links a:hover{color:var(--geel)}
+  .nav-cta{background:var(--geel);color:var(--donker);padding:11px 22px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;transition:background 0.2s,transform 0.1s;}
+  .nav-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  footer{background:#141414;padding:48px 5% 24px;color:#999;}
+  .footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid #2A2A2A;}
+  .footer-brand .footer-logo{display:inline-block;margin-bottom:14px}
+  .footer-brand img{height:46px;width:auto;display:block}
+  .footer-brand p{font-size:0.88rem;color:#888;line-height:1.6;max-width:280px}
+  .footer-col h4{color:var(--geel);font-size:0.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+  .footer-col a,.footer-col p{display:block;color:#999;font-size:0.9rem;text-decoration:none;margin-bottom:8px;transition:color 0.2s;line-height:1.6;}
+  .footer-col a:hover{color:var(--geel)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.8rem;color:#666;}
+  .footer-bottom a{color:#666;text-decoration:none;margin-left:20px;transition:color 0.2s}
+  .footer-bottom a:hover{color:var(--geel)}
+  .wa-float{position:fixed;bottom:24px;right:24px;z-index:99;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:32px;height:32px;fill:white}
+
+  /* PAGE HEADER */
+  .page-header{
+    background:var(--donker);color:var(--wit);
+    padding:140px 5% 60px;
+    position:relative;overflow:hidden;
+  }
+  .page-header::before{
+    content:'';position:absolute;top:-100px;right:-150px;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(245,194,27,0.15) 0%,rgba(245,194,27,0) 70%);
+    border-radius:50%;
+  }
+  .page-header-inner{max-width:900px;margin:0 auto;position:relative;z-index:2}
+  .page-tag{
+    font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--geel);margin-bottom:14px;display:block;
+  }
+  .page-header h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(2.4rem,5vw,3.8rem);
+    font-weight:900;letter-spacing:-0.5px;line-height:1;
+    margin-bottom:14px;
+  }
+  .page-header p{font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:600px;line-height:1.6}
+
+  .breadcrumb{
+    display:flex;align-items:center;gap:8px;
+    font-size:0.85rem;color:rgba(255,255,255,0.5);
+    margin-bottom:20px;
+  }
+  .breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s}
+  .breadcrumb a:hover{color:var(--geel)}
+  .breadcrumb svg{width:12px;height:12px}
+
+  /* CONTENT */
+  .legal-content{
+    max-width:900px;margin:0 auto;padding:70px 5%;
+  }
+  .legal-content > .intro{
+    background:var(--lichtgrijs);
+    border-left:4px solid var(--geel);
+    padding:24px 28px;
+    border-radius:8px;
+    margin-bottom:48px;
+    font-style:italic;
+    color:var(--grijs);
+  }
+  .legal-content h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.7rem;font-weight:800;color:var(--donker);
+    margin-top:48px;margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--geel);
+    letter-spacing:-0.3px;
+  }
+  .legal-content h2:first-of-type{margin-top:0}
+  .legal-content h3{
+    font-weight:700;color:var(--donker);
+    font-size:1.1rem;margin-top:24px;margin-bottom:10px;
+  }
+  .legal-content p{
+    color:var(--grijs);font-size:0.97rem;line-height:1.75;
+    margin-bottom:14px;
+  }
+  .legal-content ol, .legal-content ul{
+    margin-left:24px;margin-bottom:18px;
+  }
+  .legal-content ol li, .legal-content ul li{
+    color:var(--grijs);font-size:0.97rem;line-height:1.75;
+    margin-bottom:10px;padding-left:6px;
+  }
+  .legal-content strong{color:var(--donker);font-weight:700}
+
+  .back-link{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--geel);text-decoration:none;font-weight:600;
+    font-size:0.95rem;margin-top:48px;
+    transition:gap 0.2s;
+  }
+  .back-link:hover{gap:14px}
+
+  @media(max-width:768px){
+    .nav-links{display:none}
+    .footer-top{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+    .wa-float{width:54px;height:54px;bottom:20px;right:20px}
+    .page-header{padding:120px 5% 50px}
+  }
+</style>
+</head>
+<body>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VakTechLink">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#diensten">Diensten</a>
+    <a href="index.html#werkwijze">Werkwijze</a>
+    <a href="index.html#projecten">Projecten</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+</nav>
+
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      <span>Privacyverklaring</span>
+    </div>
+    <span class="page-tag">Privacy</span>
+    <h1>Privacyverklaring</h1>
+    <p>Hoe VakTechLink omgaat met uw persoonsgegevens.</p>
+  </div>
+</section>
+
+<div class="legal-content">
+  <div class="intro">
+    VakTechLink verwerkt persoonsgegevens in het kader van haar dienstverlening als coördinator tussen opdrachtgevers en uitvoerende zzp'ers. Wij hechten waarde aan een zorgvuldige omgang met persoonsgegevens en leggen hieronder uit welke gegevens wij verwerken, met welk doel en welke rechten u daarbij heeft.
+  </div>
+
+  <h2>1. Welke gegevens verwerken wij?</h2>
+  <p>Wij kunnen de volgende persoonsgegevens verwerken:</p>
+  <ul>
+    <li>Naam, adres, telefoonnummer en e-mailadres van opdrachtgevers en uitvoerders;</li>
+    <li>Bedrijfsgegevens zoals KvK-nummer en btw-nummer;</li>
+    <li>Betaal- en factuurgegevens;</li>
+    <li>Gegevens die noodzakelijk zijn voor de uitvoering van een specifieke opdracht (bijvoorbeeld locatiegegevens van de klus).</li>
+  </ul>
+
+  <h2>2. Waarom verwerken wij deze gegevens?</h2>
+  <p>Wij verwerken persoonsgegevens uitsluitend voor de volgende doeleinden:</p>
+  <ul>
+    <li>Het aangaan en uitvoeren van overeenkomsten tussen opdrachtgever, VakTechLink en uitvoerder;</li>
+    <li>Het onderhouden van contact en communicatie over opdrachten;</li>
+    <li>Het opstellen en verzenden van facturen en het verwerken van betalingen;</li>
+    <li>Het voldoen aan wettelijke verplichtingen (zoals administratie- en bewaarplicht).</li>
+  </ul>
+
+  <h2>3. Met wie delen wij gegevens?</h2>
+  <p>Persoonsgegevens worden alleen gedeeld met uitvoerders die de overeengekomen werkzaamheden uitvoeren, voor zover dat noodzakelijk is voor de uitvoering van de opdracht. Met uitvoerders worden afspraken gemaakt om uw gegevens zorgvuldig en uitsluitend volgens instructie te verwerken. Verder delen wij geen persoonsgegevens met derden, tenzij wij daartoe wettelijk verplicht zijn.</p>
+
+  <h2>4. Bewaartermijnen</h2>
+  <p>Wij bewaren persoonsgegevens niet langer dan noodzakelijk voor de hierboven genoemde doeleinden, tenzij een langere bewaartermijn wettelijk verplicht is (bijvoorbeeld fiscale bewaarplicht van zeven jaar).</p>
+
+  <h2>5. Beveiliging</h2>
+  <p>Wij nemen passende technische en organisatorische maatregelen om persoonsgegevens te beschermen tegen verlies of onbevoegde toegang.</p>
+
+  <h2>6. Uw rechten</h2>
+  <p>U heeft het recht om uw persoonsgegevens in te zien, te laten corrigeren of te laten verwijderen. Ook kunt u bezwaar maken tegen de verwerking of vragen om beperking daarvan. U kunt hiervoor contact opnemen via <a href="mailto:info@vaktechlink.nl" style="color:var(--geel);text-decoration:underline">info@vaktechlink.nl</a>.</p>
+  <p>Daarnaast heeft u het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens.</p>
+
+  <h2>7. Contact</h2>
+  <p>Voor vragen over deze privacyverklaring of de verwerking van uw gegevens kunt u contact opnemen met:</p>
+  <p><strong>VakTechLink</strong><br>
+  📧 <a href="mailto:info@vaktechlink.nl" style="color:var(--geel);text-decoration:underline">info@vaktechlink.nl</a><br>
+  📞 <a href="tel:0631558448" style="color:var(--geel);text-decoration:underline">06 31 55 84 48</a><br>
+  📍 Eindhoven<br>
+  KvK: 94546932</p>
+
+  <a href="index.html" class="back-link">← Terug naar home</a>
+</div>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="images/logo-wit.png" alt="VakTechLink"></div>
+      <p>Tussenpersoon in de bouw voor particulier en bedrijf. Wij koppelen jou aan de juiste vakman.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:0631558448">📞 06 31 55 84 48</a>
+      <a href="mailto:info@vaktechlink.nl">✉ info@vaktechlink.nl</a>
+      <a href="https://wa.me/31631558448" target="_blank">💬 WhatsApp ons</a>
+    </div>
+    <div class="footer-col">
+      <h4>Werkgebied</h4>
+      <p>📍 Eindhoven</p>
+      <p>Zuid-Oost & Oost Brabant</p>
+    </div>
+    <div class="footer-col">
+      <h4>Bedrijfsgegevens</h4>
+      <p>KvK: 94546932</p>
+      <p>BTW: NL005091587B45</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 VakTechLink — Vakmanschap Verbindt</div>
+    <div>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20een%20vraag" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+</body>
+</html>

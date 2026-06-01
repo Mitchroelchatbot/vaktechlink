@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VakTechLink — Tussenpersoon in de bouw | Vakmanschap Verbindt</title>
+<meta name="description" content="VakTechLink koppelt particulieren en bedrijven aan betrouwbare vakmensen in Zuid-Oost en Oost Brabant. Van aanbouw tot schilderwerk — wij zeggen nooit nee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --geel:#F5C21B;
+    --geel-donker:#e0b000;
+    --grijs:#4A4A4A;
+    --lichtgrijs:#F5F5F2;
+    --wit:#ffffff;
+    --donker:#1F1F1F;
+    --donker-card:#2A2A2A;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',sans-serif;color:var(--grijs);background:var(--wit);overflow-x:hidden;line-height:1.5}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,0.97);
+    border-bottom:2px solid var(--geel);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 5%;height:70px;
+    backdrop-filter:blur(8px);
+  }
+  .nav-logo img{height:40px;width:auto;object-fit:contain;display:block}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{text-decoration:none;color:var(--grijs);font-weight:500;font-size:0.95rem;transition:color 0.2s}
+  .nav-links a:hover{color:var(--geel)}
+  .nav-cta{
+    background:var(--geel);color:var(--donker);
+    padding:11px 22px;border-radius:6px;
+    font-weight:700;text-decoration:none;font-size:0.9rem;
+    transition:background 0.2s,transform 0.1s;
+  }
+  .nav-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+
+  /* FOOTER */
+  footer{
+    background:#141414;padding:48px 5% 24px;
+    color:#999;
+  }
+  .footer-top{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:48px;padding-bottom:32px;
+    border-bottom:1px solid #2A2A2A;
+  }
+  .footer-brand .footer-logo{display:inline-block;margin-bottom:14px}
+  .footer-brand img{height:46px;width:auto;display:block}
+  .footer-brand p{font-size:0.88rem;color:#888;line-height:1.6;max-width:280px}
+  .footer-col h4{color:var(--geel);font-size:0.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+  .footer-col a, .footer-col p{
+    display:block;color:#999;font-size:0.9rem;text-decoration:none;
+    margin-bottom:8px;transition:color 0.2s;line-height:1.6;
+  }
+  .footer-col a:hover{color:var(--geel)}
+  .footer-bottom{
+    max-width:1200px;margin:0 auto;padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:16px;font-size:0.8rem;color:#666;
+  }
+  .footer-bottom a{color:#666;text-decoration:none;margin-left:20px;transition:color 0.2s}
+  .footer-bottom a:hover{color:var(--geel)}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:99;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 24px rgba(37,211,102,0.4);
+    text-decoration:none;
+    transition:transform 0.2s,box-shadow 0.2s;
+    animation:pulse 2.5s infinite;
+  }
+  .wa-float:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(37,211,102,0.6)}
+  .wa-float svg{width:32px;height:32px;fill:white}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.4)}
+    50%{box-shadow:0 6px 24px rgba(37,211,102,0.4),0 0 0 12px rgba(37,211,102,0)}
+  }
+
+  @media(max-width:768px){
+    .nav-links{display:none}
+    .footer-top{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;align-items:flex-start}
+    .wa-float{width:54px;height:54px;bottom:20px;right:20px}
+    .wa-float svg{width:28px;height:28px}
+  }
+
+
+  /* HERO */
+  .hero{
+    min-height:100vh;background:var(--donker);
+    display:flex;align-items:center;
+    position:relative;overflow:hidden;padding:120px 5% 60px;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background-image:url('images/hero-achtergrond.jpg');
+    background-size:cover;
+    background-position:right center;
+    opacity:0.75;
+  }
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(90deg, rgba(20,20,20,0.88) 0%, rgba(20,20,20,0.72) 30%, rgba(20,20,20,0.35) 65%, rgba(20,20,20,0.20) 100%);
+    pointer-events:none;
+  }
+  .hero::before{
+    content:'';position:absolute;
+    top:50%;right:-200px;transform:translateY(-50%);
+    width:600px;height:600px;
+    background:radial-gradient(circle,rgba(245,194,27,0.15) 0%,rgba(245,194,27,0) 70%);
+    border-radius:50%;pointer-events:none;z-index:1;
+  }
+  .hero-inner{
+    max-width:1280px;margin:0 auto;width:100%;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .hero h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(2.8rem,5.5vw,5rem);
+    font-weight:900;color:var(--wit);
+    line-height:1;letter-spacing:0.5px;margin-bottom:28px;
+    text-shadow:0 2px 20px rgba(0,0,0,0.5);
+  }
+  .hero h1 .line{display:block}
+  .hero h1 .yellow{color:var(--geel)}
+  .hero h1 .white{color:var(--wit)}
+  .hero-sub{
+    font-size:1.1rem;color:rgba(255,255,255,0.75);
+    line-height:1.7;margin-bottom:32px;max-width:520px;
+  }
+  .hero-sub strong{color:var(--geel);font-weight:700}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .btn-primary{
+    background:var(--geel);color:var(--donker);
+    padding:15px 30px;border-radius:6px;
+    font-weight:700;font-size:0.98rem;text-decoration:none;
+    transition:background 0.2s,transform 0.1s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary:hover{background:var(--geel-donker);transform:translateY(-2px)}
+  .btn-outline{
+    background:transparent;color:var(--wit);
+    padding:15px 30px;border-radius:6px;
+    font-weight:600;font-size:0.98rem;text-decoration:none;
+    border:1.5px solid rgba(255,255,255,0.25);
+    transition:all 0.2s;
+  }
+  .btn-outline:hover{border-color:var(--geel);color:var(--geel)}
+  .hero-checks{
+    display:flex;flex-wrap:wrap;gap:24px;
+    font-size:0.88rem;color:rgba(255,255,255,0.7);
+  }
+  .hero-checks span{display:inline-flex;align-items:center;gap:6px}
+  .hero-checks svg{width:16px;height:16px;color:var(--geel);flex-shrink:0}
+
+  .hero-rating-inline{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:20px;
+    color:rgba(255,255,255,0.85);font-size:0.92rem;
+    background:rgba(0,0,0,0.4);
+    padding:10px 18px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(4px);
+  }
+  .hero-rating-inline .stars{color:var(--geel);letter-spacing:2px;font-size:1rem}
+
+  /* Hero right: logo + cards */
+  .hero-right{
+    display:flex;flex-direction:column;gap:20px;
+    position:relative;
+  }
+  .hero-logo-card{
+    background:rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px;
+    padding:30px 28px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  .hero-logo-card img{
+    max-width:300px;width:100%;height:auto;
+    margin:0 auto;display:block;
+  }
+  .hero-cards{display:flex;flex-direction:column;gap:12px}
+  .stat-card{
+    background:rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.12);
+    border-left:4px solid var(--geel);
+    border-radius:12px;
+    padding:16px 20px;
+    display:flex;align-items:center;gap:14px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  .stat-icon{
+    width:44px;height:44px;flex-shrink:0;
+    background:var(--geel);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .stat-icon svg{width:22px;height:22px;color:var(--donker)}
+  .stat-title{font-weight:800;color:var(--geel);font-size:1.05rem;line-height:1.2;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.3px}
+  .stat-desc{font-size:0.82rem;color:rgba(255,255,255,0.65);margin-top:3px;line-height:1.4}
+  .hero-rating{
+    display:flex;align-items:center;gap:10px;
+    color:rgba(255,255,255,0.7);font-size:0.88rem;
+    margin-top:8px;justify-content:center;
+  }
+  .hero-rating .stars{color:var(--geel);letter-spacing:2px;font-size:1rem}
+
+  /* SECTION COMMON */
+  section{padding:90px 5%}
+  .section-inner{max-width:1200px;margin:0 auto}
+  .section-tag{
+    font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--geel);margin-bottom:12px;display:block;
+  }
+  .section-title{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(2.2rem,4vw,3.3rem);
+    font-weight:900;color:var(--donker);
+    line-height:1;margin-bottom:18px;letter-spacing:-0.5px;
+  }
+  .section-title .yellow{color:var(--geel);display:block}
+  .section-sub{font-size:1.05rem;color:var(--grijs);line-height:1.7;max-width:620px;margin-bottom:32px}
+  .section-checks{
+    display:flex;flex-wrap:wrap;gap:24px;margin-bottom:40px;
+    font-size:0.9rem;color:var(--grijs);font-weight:600;
+  }
+  .section-checks span{display:inline-flex;align-items:center;gap:8px}
+  .section-checks svg{width:18px;height:18px;color:var(--geel);flex-shrink:0}
+
+  /* DIENSTEN */
+  .diensten{background:var(--lichtgrijs)}
+  .diensten-grid{
+    display:grid;grid-template-columns:repeat(7,1fr);
+    gap:14px;
+  }
+  .dienst-card{
+    background:var(--wit);
+    border-radius:12px;
+    padding:24px 16px;
+    text-align:center;
+    user-select:none;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+  .dienst-icon{font-size:2rem;margin-bottom:10px}
+  .dienst-name{font-weight:700;color:var(--donker);font-size:0.92rem}
+  .niks{
+    background:var(--donker-card);
+    border:2px solid var(--geel);
+    padding:20px 16px;
+    grid-column:span 1;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .niks .niks-title{
+    color:var(--geel);font-weight:800;font-size:1rem;
+    font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px;
+    margin-bottom:6px;
+  }
+  .niks .niks-sub{color:rgba(255,255,255,0.7);font-size:0.78rem;line-height:1.4}
+  .niks .niks-icon{font-size:1.5rem;margin-bottom:6px}
+
+  /* Trust strip */
+  .trust-strip{
+    background:#FDF8E8;
+    border-radius:14px;
+    padding:24px 28px;margin-top:40px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .trust-item{display:flex;align-items:flex-start;gap:14px}
+  .trust-icon{
+    width:38px;height:38px;flex-shrink:0;
+    background:var(--geel);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .trust-icon svg{width:18px;height:18px;color:var(--donker)}
+  .trust-title{font-weight:700;color:var(--donker);font-size:0.92rem;margin-bottom:2px}
+  .trust-desc{font-size:0.82rem;color:var(--grijs);line-height:1.4}
+
+  /* WERKWIJZE */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:16px;margin-top:32px;align-items:stretch;
+    position:relative;
+  }
+  .step{
+    background:var(--wit);
+    border-radius:16px;
+    padding:32px 24px;
+    border:2px solid #EEEEEE;
+    position:relative;
+    transition:transform 0.2s;
+  }
+  .step.featured{
+    border-color:var(--geel);
+    box-shadow:0 8px 32px rgba(245,194,27,0.15);
+  }
+  .step-badge{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--geel);color:var(--donker);
+    padding:5px 14px;border-radius:20px;
+    font-size:0.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:5px;
+  }
+  .step-icon-wrap{
+    width:64px;height:64px;
+    background:#FDF8E8;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .step-icon-wrap svg{width:30px;height:30px;color:var(--donker)}
+  .step-num{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:2.4rem;font-weight:900;color:var(--geel);
+    line-height:1;margin-bottom:8px;
+  }
+  .step-title{
+    font-weight:800;color:var(--donker);
+    font-size:1.15rem;margin-bottom:10px;
+    font-family:'Barlow Condensed',sans-serif;letter-spacing:0.3px;
+  }
+  .step-underline{
+    width:36px;height:3px;background:var(--geel);
+    margin-bottom:14px;border-radius:2px;
+  }
+  .step-text{color:var(--grijs);font-size:0.9rem;line-height:1.6}
+  .step-arrow{
+    position:absolute;right:-22px;top:62px;
+    width:32px;height:32px;
+    background:var(--geel);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    z-index:5;
+  }
+  .step-arrow svg{width:14px;height:14px;color:var(--donker)}
+  .step:last-child .step-arrow{display:none}
+
+  /* Werkwijze bottom strip */
+  .werkwijze-strip{
+    background:#FDF8E8;
+    border-radius:14px;
+    padding:24px;margin-top:36px;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;
+  }
+  .werkwijze-strip .trust-item{gap:12px}
+  .werkwijze-niks{
+    text-align:center;margin-top:28px;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font-size:0.95rem;color:var(--grijs);
+  }
+  .werkwijze-niks-star{
+    width:30px;height:30px;background:var(--geel);border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .werkwijze-niks strong{color:var(--donker);font-weight:800}
+
+  /* PROJECTEN */
+  .projecten{background:var(--lichtgrijs)}
+  .projecten-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+  }
+  .project-card{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    aspect-ratio:16/10;
+    cursor:default;
+  }
+  .project-card img{
+    width:100%;height:100%;object-fit:cover;
+    display:block;transition:transform 0.4s ease;
+  }
+  .project-card:hover img{transform:scale(1.04)}
+  .project-label{
+    position:absolute;top:16px;left:16px;
+    background:var(--donker-card);
+    color:var(--wit);
+    padding:8px 16px;border-radius:8px;
+    font-weight:700;font-size:0.88rem;
+    display:flex;align-items:center;gap:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  }
+  .project-label svg{width:16px;height:16px;color:var(--geel)}
+
+  /* REVIEWS */
+  .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .review-card{
+    background:var(--wit);border-radius:14px;
+    padding:28px 26px;
+    border:1px solid #EEEEEE;border-top:4px solid var(--geel);
+    box-shadow:0 2px 14px rgba(0,0,0,0.04);
+  }
+  .review-stars{color:var(--geel);font-size:1.05rem;margin-bottom:12px;letter-spacing:2px}
+  .review-text{font-size:0.92rem;line-height:1.65;color:var(--grijs);margin-bottom:14px;font-style:italic}
+  .review-author{font-weight:700;color:var(--donker);font-size:0.92rem}
+  .review-meta{font-size:0.78rem;color:#999;margin-top:2px}
+  .google-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--lichtgrijs);border-radius:24px;padding:10px 18px;
+    font-size:0.85rem;font-weight:600;color:var(--grijs);margin-bottom:32px;
+  }
+
+  /* CONTACT */
+  .contact{background:var(--donker);position:relative;overflow:hidden;color:var(--wit)}
+  .contact::before{
+    content:'';position:absolute;bottom:-200px;left:-150px;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(245,194,27,0.1) 0%,rgba(245,194,27,0) 70%);
+    border-radius:50%;pointer-events:none;
+  }
+  .contact-inner{
+    display:grid;grid-template-columns:1fr 1.3fr;gap:60px;
+    align-items:start;position:relative;z-index:2;
+  }
+  .contact-info .section-title{color:var(--wit)}
+  .contact-info .section-sub{color:rgba(255,255,255,0.65)}
+  .contact-photo{
+    width:100%;border-radius:14px;overflow:hidden;
+    border:3px solid var(--geel);margin-bottom:28px;
+    background:#1a1a1a;
+  }
+  .contact-photo img{
+    width:100%;height:auto;display:block;
+  }
+  .contact-detail{
+    display:flex;align-items:center;gap:14px;margin-bottom:14px;
+    color:rgba(255,255,255,0.85);font-size:0.96rem;
+    text-decoration:none;
+  }
+  .contact-detail svg{
+    width:20px;height:20px;color:var(--geel);flex-shrink:0;
+  }
+  a.contact-detail:hover{color:var(--geel)}
+  .wa-link{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#25D366;color:var(--wit);
+    padding:13px 24px;border-radius:8px;
+    font-weight:700;font-size:0.94rem;text-decoration:none;
+    margin-top:20px;transition:background 0.2s,transform 0.1s;
+  }
+  .wa-link:hover{background:#1FB855;transform:translateY(-2px)}
+  .wa-link svg{width:20px;height:20px;fill:white}
+
+  .form-card{
+    background:var(--wit);border-radius:16px;
+    padding:40px 36px;color:var(--grijs);
+  }
+  .form-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .form-icon{
+    width:48px;height:48px;background:#FDF8E8;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .form-icon svg{width:22px;height:22px;color:var(--geel)}
+  .form-title{font-family:'Barlow Condensed',sans-serif;font-size:1.65rem;font-weight:900;color:var(--donker);line-height:1}
+  .form-subtitle{font-size:0.9rem;color:var(--grijs);margin-top:4px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{margin-bottom:16px}
+  .form-group label{
+    display:block;font-size:0.78rem;font-weight:700;color:var(--grijs);
+    margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;
+  }
+  .form-group input,.form-group textarea{
+    width:100%;padding:12px 16px;
+    border:1.5px solid #E5E5E5;border-radius:8px;
+    font-family:'Barlow',sans-serif;font-size:0.95rem;color:var(--donker);
+    transition:border-color 0.2s;outline:none;
+    background:var(--wit);
+  }
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--geel)}
+  .form-group textarea{resize:vertical;min-height:120px}
+  .form-submit{
+    width:100%;background:var(--geel);color:var(--donker);
+    padding:16px;border:none;border-radius:8px;
+    font-family:'Barlow',sans-serif;font-size:1rem;font-weight:700;
+    cursor:pointer;transition:background 0.2s,transform 0.1s;
+  }
+  .form-submit:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  .form-success{
+    display:none;background:#e8f5e9;border:1px solid #4caf50;border-radius:8px;
+    padding:16px;text-align:center;color:#2e7d32;font-weight:600;margin-top:14px;
+  }
+  .form-error{
+    display:none;background:#fdecea;border:1px solid #f44336;border-radius:8px;
+    padding:16px;text-align:center;color:#c62828;font-weight:600;margin-top:14px;
+  }
+
+  /* Contact bottom trust */
+  .contact-trust{
+    grid-column:1/-1;
+    margin-top:48px;padding-top:32px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  }
+  .contact-trust .trust-item{color:var(--wit)}
+  .contact-trust .trust-title{color:var(--wit)}
+  .contact-trust .trust-desc{color:rgba(255,255,255,0.6)}
+
+  /* MOBILE */
+  @media(max-width:968px){
+    .hero-inner{grid-template-columns:1fr;gap:48px}
+    .hero-bg{
+      background-position:center top;
+      opacity:0.65;
+    }
+    .hero-overlay{
+      background:linear-gradient(180deg, 
+        rgba(20,20,20,0.82) 0%, 
+        rgba(20,20,20,0.70) 40%,
+        rgba(20,20,20,0.55) 70%,
+        rgba(20,20,20,0.75) 100%
+      );
+    }
+    .diensten-grid{grid-template-columns:repeat(4,1fr)}
+    .steps{grid-template-columns:1fr 1fr;gap:24px 16px}
+    .step-arrow{display:none !important}
+    .trust-strip,.werkwijze-strip,.contact-trust{grid-template-columns:1fr 1fr;gap:20px}
+    .projecten-grid,.reviews-grid{grid-template-columns:1fr}
+    .contact-inner{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .diensten-grid{grid-template-columns:1fr 1fr}
+    .trust-strip,.werkwijze-strip,.contact-trust{grid-template-columns:1fr}
+    section{padding:60px 5%}
+
+    /* Hero foto op kleine schermen */
+    .hero-bg{
+      background-position:60% top;
+      opacity:0.60;
+    }
+    .hero-right{display:none}
+    
+    /* Punt 3: alleen gele knop tonen op mobiel */
+    .btn-outline{display:none}
+    .hero-btns .btn-primary{width:100%;justify-content:center}
+    
+    /* Punt 4: stappen als horizontale swipe-carousel op mobiel */
+    .steps{
+      display:flex;
+      flex-direction:row;
+      grid-template-columns:none;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      padding:24px 5% 12px;
+      margin:0 -5% 8px;
+    }
+    .steps::-webkit-scrollbar{display:none}
+    .step{
+      min-width:78%;
+      max-width:78%;
+      scroll-snap-align:center;
+      flex-shrink:0;
+    }
+    .swipe-hint{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      color:var(--geel);font-size:0.85rem;font-weight:600;
+      margin-bottom:8px;
+    }
+    .swipe-hint svg{width:18px;height:18px;animation:swipeAnim 1.8s ease-in-out infinite}
+    @keyframes swipeAnim{
+      0%,100%{transform:translateX(0)}
+      50%{transform:translateX(8px)}
+    }
+  }
+  @media(min-width:521px){
+    .swipe-hint{display:none}
+  }
+
+  /* SCROLL ANIM */
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.6s,transform 0.6s}
+  .fade-up.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VakTechLink">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#diensten">Diensten</a>
+    <a href="index.html#werkwijze">Werkwijze</a>
+    <a href="index.html#projecten">Projecten</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div>
+      <h1>
+        <span class="line white" data-cms="hero_titel_regel1">Jouw project.</span>
+        <span class="line yellow" data-cms="hero_titel_regel2">Onze vakmensen.</span>
+        <span class="line white" data-cms="hero_titel_regel3">Altijd de juiste match.</span>
+      </h1>
+      <p class="hero-sub" data-cms-html="hero_tekst">Tussenpersoon in de bouw voor particulier en bedrijf. <strong>Wij zeggen nooit nee.</strong> Van airco tot schilderwerk, van aanbouw tot afbouw — uit ons brede netwerk koppelen wij jou aan de juiste vakman.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Start jouw project →</a>
+        <a href="#werkwijze" class="btn-outline">Bekijk hoe het werkt</a>
+      </div>
+      <div class="hero-checks">
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Eén aanspreekpunt</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Snel geregeld</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Betrouwbare vakmensen</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Scherpe afspraken</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-logo-card">
+        <img src="images/logo-wit.png" alt="VakTechLink logo">
+      </div>
+      <div class="hero-cards">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div>
+            <div class="stat-title">Wij zeggen nooit nee</div>
+            <div class="stat-desc">Van klein klusje tot compleet project. Particulier of bedrijf.</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.78 15.3L19.78 21.3L21.89 19.14L15.89 13.14L13.78 15.3M17.5 10.1C17.11 10.1 16.69 10.05 16.36 9.91L4.97 21.25L2.86 19.14L10.27 11.74L8.5 9.96L7.78 10.66L6.33 9.25V12.11L5.63 12.81L2.11 9.25L2.81 8.55H5.62L4.22 7.14L7.78 3.58C8.95 2.41 10.83 2.41 12 3.58L9.89 5.69L11.3 7.11L10.59 7.81L12.36 9.58L13.5 8.44C13.36 8.06 13.27 7.69 13.27 7.3C13.27 5.16 14.91 3.5 17.05 3.5C17.69 3.5 18.28 3.66 18.81 3.94L15.83 6.92L17.59 8.69L20.58 5.71C20.86 6.22 21 6.81 21 7.45C21 9.55 19.55 11.2 17.5 11.2"/></svg>
+          </div>
+          <div>
+            <div class="stat-title">Van A tot Z geregeld</div>
+            <div class="stat-desc">Van aanvraag tot oplevering. Eén partij, alles geregeld.</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h2.5l2.54-7.63C9.29 5.55 10.05 5 10.91 5h2.18c.86 0 1.62.55 1.87 1.37L17.5 14H20v4h-3v4h-2v-4H9v4H7v-4H4z"/></svg>
+          </div>
+          <div>
+            <div class="stat-title">Het juiste netwerk</div>
+            <div class="stat-desc">Uit ons brede scala aan vakmensen koppelen wij de juiste specialist.</div>
+          </div>
+        </div>
+        <div class="hero-rating">
+          <span class="stars">★★★★★</span>
+          <span>4.9/5 op basis van 100+ beoordelingen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section class="diensten" id="diensten">
+  <div class="section-inner">
+    <span class="section-tag fade-up">Wat wij doen</span>
+    <h2 class="section-title fade-up">Voor elke klus<span class="yellow">de juiste vakman.</span></h2>
+    <p class="section-sub fade-up">Van aanbouw tot afbouw, van airco tot schilderwerk — wij koppelen particulieren en bedrijven aan betrouwbare specialisten uit ons netwerk.</p>
+    <div class="section-checks fade-up">
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Particulier &amp; zakelijk</span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Eén aanspreekpunt</span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Snel geregeld</span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Betrouwbare vakmensen</span>
+    </div>
+
+    <div class="diensten-grid fade-up">
+      <div class="dienst-card"><div class="dienst-icon">🏗️</div><div class="dienst-name">Aanbouw</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🔨</div><div class="dienst-name">Renovatie</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🛁</div><div class="dienst-name">Badkamer</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🚿</div><div class="dienst-name">Toilet</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🪵</div><div class="dienst-name">Vloeren</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🌡️</div><div class="dienst-name">Vloerverwarming</div></div>
+      <div class="dienst-card"><div class="dienst-icon">❄️</div><div class="dienst-name">Airco's</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🏠</div><div class="dienst-name">Stucwerk</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🎨</div><div class="dienst-name">Schilderen</div></div>
+      <div class="dienst-card"><div class="dienst-icon">⚡</div><div class="dienst-name">Elektra</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🔧</div><div class="dienst-name">Loodgieterswerk</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🪟</div><div class="dienst-name">Kozijnen</div></div>
+      <div class="dienst-card"><div class="dienst-icon">🏘️</div><div class="dienst-name">Dakkapellen</div></div>
+      <div class="dienst-card niks">
+        <div class="niks-icon">✨</div>
+        <div class="niks-title">Niks is te gek!</div>
+        <div class="niks-sub">Staat jouw klus er niet tussen? Wij regelen het.</div>
+      </div>
+    </div>
+
+    <div class="trust-strip fade-up">
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7.4c-.71 0-1.37.31-1.82.84L12 14.5l-2.54-1.91 1.45-1.45 1.86 1.4 3.74-4.49V10c0 1.1.9 2 2 2v10h-2v-1H14v1h-2v-4.5l-4 4.5H6l3.5-4-3-4-3 2.5V11l3-2.5L9 11l3-2.5V3H6c-.55 0-1 .45-1 1v1H3V4c0-1.65 1.35-3 3-3h12c1.65 0 3 1.35 3 3h-2c0-.55-.45-1-1-1z"/></svg></div>
+        <div>
+          <div class="trust-title">Particulier &amp; zakelijk</div>
+          <div class="trust-desc">Wij helpen iedereen.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+        <div>
+          <div class="trust-title">Eén aanspreekpunt</div>
+          <div class="trust-desc">Altijd iemand die met je meedenkt.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg></div>
+        <div>
+          <div class="trust-title">Snel geregeld</div>
+          <div class="trust-desc">Vandaag aanvragen, snel een oplossing.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+        <div>
+          <div class="trust-title">Betrouwbare vakmensen</div>
+          <div class="trust-desc">Geselecteerd op kwaliteit en vakmanschap.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section id="werkwijze">
+  <div class="section-inner">
+    <span class="section-tag fade-up">Hoe het werkt</span>
+    <h2 class="section-title fade-up">Simpel. Snel. Zeker.<span class="yellow">Zo regelen wij het voor jou.</span></h2>
+    <p class="section-sub fade-up">Van aanvraag tot oplevering — duidelijk, persoonlijk en zonder gedoe.</p>
+
+    <div class="swipe-hint">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      Swipe om alle stappen te zien
+    </div>
+    <div class="steps fade-up">
+      <div class="step">
+        <div class="step-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM7 9h10v2H7zm6 5H7v-2h6zm4-6H7V6h10z"/></svg></div>
+        <div class="step-num">01</div>
+        <div class="step-title">Aanvraag indienen</div>
+        <div class="step-underline"></div>
+        <div class="step-text">Vertel ons wat je zoekt. Groot of klein, wij denken met je mee.</div>
+        <div class="step-arrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+      </div>
+
+      <div class="step featured">
+        <div class="step-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:11px;height:11px"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Hier maken wij het verschil
+        </div>
+        <div class="step-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12c2.21 0 4-1.79 4-4S11.21 4 9 4 5 5.79 5 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h10.5l-1-3 1.5-1.5C11 14.5 10 14 9 14zm10.31 4l1.07-1.07-3.07-3.07-1.07 1.07c-.39.39-.39 1.02 0 1.41l1.66 1.66c.39.39 1.02.39 1.41 0z"/></svg></div>
+        <div class="step-num">02</div>
+        <div class="step-title">Juiste vakman koppelen</div>
+        <div class="step-underline"></div>
+        <div class="step-text">Wij koppelen je aan de vakman die écht past bij jouw klus, planning en wensen.</div>
+        <div class="step-arrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.78 15.3L19.78 21.3L21.89 19.14L15.89 13.14L13.78 15.3M17.5 10.1C17.11 10.1 16.69 10.05 16.36 9.91L4.97 21.25L2.86 19.14L10.27 11.74L8.5 9.96L7.78 10.66L6.33 9.25V12.11L5.63 12.81L2.11 9.25L2.81 8.55H5.62L4.22 7.14L7.78 3.58C8.95 2.41 10.83 2.41 12 3.58L9.89 5.69L11.3 7.11L10.59 7.81L12.36 9.58L13.5 8.44C13.36 8.06 13.27 7.69 13.27 7.3C13.27 5.16 14.91 3.5 17.05 3.5C17.69 3.5 18.28 3.66 18.81 3.94L15.83 6.92L17.59 8.69L20.58 5.71C20.86 6.22 21 6.81 21 7.45C21 9.55 19.55 11.2 17.5 11.2"/></svg></div>
+        <div class="step-num">03</div>
+        <div class="step-title">Werk uitvoeren</div>
+        <div class="step-underline"></div>
+        <div class="step-text">De vakman gaat aan de slag. Wij houden contact en zorgen dat alles soepel verloopt.</div>
+        <div class="step-arrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></div>
+        <div class="step-num">04</div>
+        <div class="step-title">Top resultaat</div>
+        <div class="step-underline"></div>
+        <div class="step-text">Duidelijke afspraken. Precies zoals het hoort. Klaar &amp; tevreden.</div>
+      </div>
+    </div>
+
+    <div class="werkwijze-strip fade-up">
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div>
+          <div class="trust-title">Eén aanspreekpunt</div>
+          <div class="trust-desc">Altijd iemand die met je meedenkt.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <div>
+          <div class="trust-title">Betrouwbare vakmensen</div>
+          <div class="trust-desc">Geselecteerde specialisten waar we achter staan.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg></div>
+        <div>
+          <div class="trust-title">Snel geregeld</div>
+          <div class="trust-desc">We schakelen snel en houden de lijnen kort.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 8.79v2.55L12 18l7-3.66v-2.55L12 16 5 11.79z"/></svg></div>
+        <div>
+          <div class="trust-title">Voor particulier &amp; bedrijf</div>
+          <div class="trust-desc">Wij helpen zowel particulieren als bedrijven.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+        <div>
+          <div class="trust-title">Geen gedoe</div>
+          <div class="trust-desc">Wij regelen het, jij kunt vertrouwen op een goed resultaat.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="werkwijze-niks fade-up">
+      <span class="werkwijze-niks-star">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;color:#1F1F1F"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </span>
+      <strong>Niks is te gek.</strong> Staat jouw klus er niet tussen? Wij vinden een oplossing.
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTEN -->
+<section class="projecten" id="projecten">
+  <div class="section-inner">
+    <span class="section-tag fade-up">Ons werk</span>
+    <h2 class="section-title fade-up">Resultaten<span class="yellow">die spreken.</span></h2>
+    <p class="section-sub fade-up">Een greep uit onze uitgevoerde projecten.</p>
+    <div class="projecten-grid fade-up">
+      <div class="project-card">
+        <img src="images/project-aanbouw.png" data-cms-img="project_1_foto" alt="Aanbouw project">
+        <div class="project-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span data-cms="project_1_titel">Aanbouw</span> →
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/project-kozijnen.jpg" data-cms-img="project_2_foto" alt="Kozijnen project">
+        <div class="project-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          <span data-cms="project_2_titel">Kozijnen</span> →
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/project-renovatie.png" data-cms-img="project_3_foto" alt="Renovatie project">
+        <div class="project-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03z"/></svg>
+          <span data-cms="project_3_titel">Renovatie</span> →
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/project-schilderwerk.png" data-cms-img="project_4_foto" alt="Schilderwerk project">
+        <div class="project-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z"/></svg>
+          <span data-cms="project_4_titel">Schilderwerk</span> →
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <span class="section-tag fade-up">Wat klanten zeggen</span>
+    <h2 class="section-title fade-up">Echte ervaringen.<span class="yellow">Echte resultaten.</span></h2>
+    <div class="google-badge fade-up">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Geverifieerde Google Reviews
+    </div>
+    <div class="reviews-grid fade-up">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We hebben al ongeveer 2 jaar een fijne en soepele samenwerking, heb voor VakTechLink mooie projecten mogen maken zowel grote als kleine projecten. Zowel binnen als buitenschilderwerk. Communicatie is heel goed, en de afspraken worden nagekomen."</p>
+        <div class="review-author">Roger Ferdinandus</div>
+        <div class="review-meta">3 dagen geleden · Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Enorm geholpen met onze verbouwing. Fijne en heldere communicatie en een strakke planning."</p>
+        <div class="review-author">Constantijn van Duijn</div>
+        <div class="review-meta">16 uur geleden · Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Ik ben zeer tevreden over de geïnstalleerde airco. De installateur heeft uitstekend werk verricht en alles zeer netjes afgewerkt. Ook zijn uitleg over de installatie was zeer nuttig. Uitermate tevreden over alles."</p>
+        <div class="review-author">Hennie ter Haar</div>
+        <div class="review-meta">20 uur geleden · Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Vorig jaar heb ik door VakTechLink de ruimte voor de nieuwe keuken aan laten pakken. Met muren zo vol gaten hield ik mijn hart vast, maar het resultaat is erg mooi geworden. Het contact vooraf ging heel vriendelijk en gemoedelijk. Dezelfde avond kwam er iemand kijken zodat een offerte kon worden gemaakt. Ik ben erg tevreden over het resultaat."</p>
+        <div class="review-author">Maartje Madeleine</div>
+        <div class="review-meta">een dag geleden · Google · Local Guide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title"><span data-cms="contact_titel">Klaar om te starten?</span><span class="yellow" data-cms="contact_subtitel">Wij regelen de rest.</span></h2>
+        <div class="contact-photo">
+          <img src="images/contact-foto.jpg" alt="Gino Umans – VakTechLink">
+        </div>
+        <a href="tel:0631558448" class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>06 31 55 84 48 — bel of app ons</span>
+        </a>
+        <a href="mailto:info@vaktechlink.nl" class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@vaktechlink.nl</span>
+        </a>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>Eindhoven · Zuid-Oost &amp; Oost Brabant</span>
+        </div>
+        <a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20een%20vraag" target="_blank" class="wa-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Chat met ons via WhatsApp →
+        </a>
+      </div>
+
+      <div class="form-card fade-up">
+        <div id="form-content">
+          <div class="form-header">
+            <div class="form-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            </div>
+            <div>
+              <div class="form-title">Stuur een aanvraag</div>
+              <div class="form-subtitle">We reageren zo snel mogelijk!</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Naam *</label><input type="text" id="f-naam" name="naam" placeholder="Voor- en achternaam"></div>
+            <div class="form-group"><label>Telefoonnummer *</label><input type="tel" id="f-tel" name="telefoonnummer" placeholder="+31 6 00 000 000"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Adres</label><input type="text" id="f-adres" name="adres" placeholder="Straat + huisnummer"></div>
+            <div class="form-group"><label>Woonplaats</label><input type="text" id="f-plaats" name="woonplaats" placeholder="Stad"></div>
+          </div>
+          <div class="form-group"><label>E-mailadres *</label><input type="email" id="f-email" name="email" placeholder="jouw@email.nl"></div>
+          <div class="form-group"><label>Vertel ons je wens *</label><textarea id="f-aanvraag" name="aanvraag" placeholder="Beschrijf wat je wilt laten doen. Niks is te gek!"></textarea></div>
+          <button class="form-submit" id="form-btn" onclick="submitForm(event)">Aanvraag versturen →</button>
+          <div class="form-error" id="form-error">✗ Er ging iets mis. Probeer het opnieuw of bel ons op <a href="tel:0631558448" style="color:#c62828;font-weight:700">06 31 55 84 48</a>.</div>
+        </div>
+
+        <div id="form-thankyou" style="display:none;text-align:center;padding:52px 24px;">
+          <div style="width:80px;height:80px;background:#FDF8E8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:3px solid #F5C21B;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:40px;height:40px;color:#F5C21B"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          </div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;color:#1F1F1F;line-height:1;margin-bottom:14px;">Bedankt voor<br>je aanvraag!</div>
+          <p style="font-size:1rem;color:#4A4A4A;line-height:1.7;margin-bottom:32px;max-width:380px;margin-left:auto;margin-right:auto;">We nemen zo snel mogelijk contact met je op — meestal binnen een paar uur. Je hoort van ons!</p>
+          <a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20zojuist%20een%20aanvraag%20gedaan" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 24px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;">
+            <svg viewBox="0 0 24 24" fill="white" style="width:20px;height:20px"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Of app ons via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-trust">
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+          <div>
+            <div class="trust-title">100% vrijblijvend</div>
+            <div class="trust-desc">Je zit nergens aan vast.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg></div>
+          <div>
+            <div class="trust-title">Snel antwoord</div>
+            <div class="trust-desc">We reageren zo snel mogelijk.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div>
+            <div class="trust-title">Voor particulier &amp; bedrijf</div>
+            <div class="trust-desc">Kleine klus of groot project.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="images/logo-wit.png" alt="VakTechLink"></div>
+      <p>Tussenpersoon in de bouw voor particulier en bedrijf. Wij koppelen jou aan de juiste vakman.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:0631558448">📞 06 31 55 84 48</a>
+      <a href="mailto:info@vaktechlink.nl">✉ info@vaktechlink.nl</a>
+      <a href="https://wa.me/31631558448" target="_blank">💬 WhatsApp ons</a>
+    </div>
+    <div class="footer-col">
+      <h4>Werkgebied</h4>
+      <p>📍 Eindhoven</p>
+      <p>Zuid-Oost & Oost Brabant</p>
+    </div>
+    <div class="footer-col">
+      <h4>Bedrijfsgegevens</h4>
+      <p>KvK: 94546932</p>
+      <p>BTW: NL005091587B45</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 VakTechLink — Vakmanschap Verbindt</div>
+    <div>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20een%20vraag" target="_blank" class="wa-float" aria-label="Chat met ons via WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
+</a>
+
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  async function submitForm(e) {
+    e.preventDefault();
+    const naam = document.getElementById('f-naam').value.trim();
+    const tel = document.getElementById('f-tel').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const aanvraag = document.getElementById('f-aanvraag').value.trim();
+
+    if(!naam || !tel || !email || !aanvraag) {
+      alert('Vul alle verplichte velden in (*)');
+      return;
+    }
+
+    const btn = document.getElementById('form-btn');
+    btn.disabled = true;
+    btn.textContent = 'Versturen...';
+
+    const data = {
+      naam: naam,
+      telefoonnummer: tel,
+      adres: document.getElementById('f-adres').value.trim(),
+      woonplaats: document.getElementById('f-plaats').value.trim(),
+      email: email,
+      aanvraag: aanvraag
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/xdabbqwo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if(response.ok) {
+        // Formulier verbergen, bedankt-scherm tonen
+        document.getElementById('form-content').style.display = 'none';
+        document.getElementById('form-thankyou').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch(err) {
+      document.getElementById('form-error').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Aanvraag versturen →';
+    }
+  }
+</script>
+
+<script>
+  // Laad bewerkbare teksten/foto's uit het CMS-databestand
+  fetch('/content/site.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (!data) return;
+      // Tekst-velden
+      document.querySelectorAll('[data-cms]').forEach(el => {
+        const key = el.getAttribute('data-cms');
+        if (data[key] != null && data[key] !== '') el.textContent = data[key];
+      });
+      // HTML-velden (mogen <strong> e.d. bevatten)
+      document.querySelectorAll('[data-cms-html]').forEach(el => {
+        const key = el.getAttribute('data-cms-html');
+        if (data[key] != null && data[key] !== '') el.innerHTML = data[key];
+      });
+      // Afbeeldingen
+      document.querySelectorAll('[data-cms-img]').forEach(el => {
+        const key = el.getAttribute('data-cms-img');
+        if (data[key] != null && data[key] !== '') el.setAttribute('src', data[key]);
+      });
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

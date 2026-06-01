@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Map waar geüploade afbeeldingen terechtkomen
+media_folder: "images"
+public_folder: "/images"
+
+# Nederlandse interface
+locale: 'nl'
+
+collections:
+  - name: "site"
+    label: "Website teksten & foto's"
+    files:
+      - name: "homepage"
+        label: "Homepagina"
+        file: "content/site.json"
+        fields:
+          - label: "Titel regel 1 (wit)"
+            name: "hero_titel_regel1"
+            widget: "string"
+            hint: "De eerste regel van de grote kop bovenaan"
+          - label: "Titel regel 2 (geel)"
+            name: "hero_titel_regel2"
+            widget: "string"
+          - label: "Titel regel 3 (wit)"
+            name: "hero_titel_regel3"
+            widget: "string"
+          - label: "Introtekst onder de titel"
+            name: "hero_tekst"
+            widget: "text"
+          - label: "Contact titel"
+            name: "contact_titel"
+            widget: "string"
+          - label: "Contact subtitel (geel)"
+            name: "contact_subtitel"
+            widget: "string"
+
+          - label: "Project 1 — titel"
+            name: "project_1_titel"
+            widget: "string"
+          - label: "Project 1 — foto"
+            name: "project_1_foto"
+            widget: "image"
+          - label: "Project 2 — titel"
+            name: "project_2_titel"
+            widget: "string"
+          - label: "Project 2 — foto"
+            name: "project_2_foto"
+            widget: "image"
+          - label: "Project 3 — titel"
+            name: "project_3_titel"
+            widget: "string"
+          - label: "Project 3 — foto"
+            name: "project_3_foto"
+            widget: "image"
+          - label: "Project 4 — titel"
+            name: "project_4_titel"
+            widget: "string"
+          - label: "Project 4 — foto"
+            name: "project_4_foto"
+            widget: "image"
