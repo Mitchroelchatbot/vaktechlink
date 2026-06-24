@@ -370,33 +370,76 @@
   }
   .werkwijze-niks strong{color:var(--donker);font-weight:800}
 
-  /* PROJECTEN */
+  /* PROJECTEN — slideshow */
   .projecten{background:var(--lichtgrijs)}
-  .projecten-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
-  }
-  .project-card{
+  .slideshow{
     position:relative;
     border-radius:14px;
     overflow:hidden;
-    aspect-ratio:16/10;
-    cursor:default;
-  }
-  .project-card img{
-    width:100%;height:100%;object-fit:cover;
-    display:block;transition:transform 0.4s ease;
-  }
-  .project-card:hover img{transform:scale(1.04)}
-  .project-label{
-    position:absolute;top:16px;left:16px;
     background:var(--donker-card);
-    color:var(--wit);
-    padding:8px 16px;border-radius:8px;
-    font-weight:700;font-size:0.88rem;
-    display:flex;align-items:center;gap:8px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    box-shadow:0 8px 30px rgba(0,0,0,0.12);
+    touch-action:pan-y;
   }
-  .project-label svg{width:16px;height:16px;color:var(--geel)}
+  .slideshow-track{
+    position:relative;
+    width:100%;
+    height:460px;
+  }
+  .slide{
+    position:absolute;inset:0;
+    opacity:0;
+    transition:opacity 0.7s ease;
+    pointer-events:none;
+  }
+  .slide.active{opacity:1;pointer-events:auto}
+  .slide img{
+    width:100%;height:100%;
+    object-fit:cover;display:block;
+  }
+  .slide-caption{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0));
+    color:var(--wit);
+    padding:48px 24px 42px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:1.2rem;letter-spacing:0.3px;
+    text-align:center;
+  }
+  .slideshow-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:46px;height:46px;border:none;border-radius:50%;
+    background:rgba(31,31,31,0.55);color:var(--wit);
+    font-size:1.7rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background 0.2s,transform 0.2s;
+    z-index:3;
+  }
+  .slideshow-arrow:hover{background:var(--geel);color:var(--donker)}
+  .slideshow-arrow:focus-visible{outline:2px solid var(--geel);outline-offset:2px}
+  .slideshow-arrow.prev{left:16px}
+  .slideshow-arrow.next{right:16px}
+  .slideshow-dots{
+    position:absolute;left:0;right:0;bottom:14px;
+    display:flex;justify-content:center;gap:9px;
+    z-index:3;
+  }
+  .slideshow-dot{
+    width:10px;height:10px;border-radius:50%;border:none;
+    background:rgba(255,255,255,0.55);cursor:pointer;padding:0;
+    transition:background 0.2s,transform 0.2s;
+  }
+  .slideshow-dot:hover{background:rgba(255,255,255,0.85)}
+  .slideshow-dot.active{background:var(--geel);transform:scale(1.25)}
+  @media(max-width:768px){
+    .slideshow-track{height:340px}
+  }
+  @media(max-width:520px){
+    .slideshow-track{height:240px}
+    .slide-caption{font-size:1.05rem;padding:40px 16px 38px}
+    .slideshow-arrow{width:38px;height:38px;font-size:1.4rem}
+    .slideshow-arrow.prev{left:10px}
+    .slideshow-arrow.next{right:10px}
+  }
 
   /* REVIEWS */
   .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -530,7 +573,7 @@
     .steps{grid-template-columns:1fr 1fr;gap:24px 16px}
     .step-arrow{display:none !important}
     .trust-strip,.werkwijze-strip,.contact-trust{grid-template-columns:1fr 1fr;gap:20px}
-    .projecten-grid,.reviews-grid{grid-template-columns:1fr}
+    .reviews-grid{grid-template-columns:1fr}
     .contact-inner{grid-template-columns:1fr}
     .form-row{grid-template-columns:1fr}
   }
@@ -847,35 +890,25 @@
     <span class="section-tag fade-up">Ons werk</span>
     <h2 class="section-title fade-up">Resultaten<span class="yellow">die spreken.</span></h2>
     <p class="section-sub fade-up">Een greep uit onze uitgevoerde projecten.</p>
-    <div class="projecten-grid fade-up">
-      <div class="project-card">
-        <img src="images/project-aanbouw.png" data-cms-img="project_1_foto" alt="Aanbouw project">
-        <div class="project-label">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-          <span data-cms="project_1_titel">Aanbouw</span> →
-        </div>
+    <div class="slideshow fade-up" id="projecten-slideshow" aria-roledescription="carousel" aria-label="Uitgevoerde projecten">
+      <div class="slideshow-track">
+        <div class="slide active"><img src="images/project-tuin-panorama-1.jpeg" alt="Complete tuinaanleg met overkapping" loading="lazy"><div class="slide-caption">Complete tuinaanleg met overkapping</div></div>
+        <div class="slide"><img src="images/project-tuin-1.jpeg" alt="Tuinaanleg met sfeerverlichting" loading="lazy"><div class="slide-caption">Tuinaanleg met sfeerverlichting</div></div>
+        <div class="slide"><img src="images/project-badkamer-1.jpeg" alt="Badkamerrenovatie" loading="lazy"><div class="slide-caption">Badkamerrenovatie</div></div>
+        <div class="slide"><img src="images/project-kozijnen-2.jpeg" alt="Kozijnen vervangen" loading="lazy"><div class="slide-caption">Kozijnen vervangen</div></div>
+        <div class="slide"><img src="images/project-tuin-2.jpeg" alt="Strakke tuin met bestrating" loading="lazy"><div class="slide-caption">Strakke tuin met bestrating</div></div>
+        <div class="slide"><img src="images/project-renovatie-2.jpeg" alt="Complete renovatie" loading="lazy"><div class="slide-caption">Complete renovatie</div></div>
+        <div class="slide"><img src="images/project-tuin-panorama-2.jpeg" alt="Tuin met overdekte zithoek" loading="lazy"><div class="slide-caption">Tuin met overdekte zithoek</div></div>
+        <div class="slide"><img src="images/project-badkamer-2.jpeg" alt="Moderne badkamer" loading="lazy"><div class="slide-caption">Moderne badkamer</div></div>
+        <div class="slide"><img src="images/project-vloer.jpeg" alt="Vloer leggen" loading="lazy"><div class="slide-caption">Vloer leggen</div></div>
+        <div class="slide"><img src="images/project-tuin-3.jpeg" alt="Tuinaanleg" loading="lazy"><div class="slide-caption">Tuinaanleg</div></div>
+        <div class="slide"><img src="images/project-badkamer-3.jpeg" alt="Badkamer met inloopdouche" loading="lazy"><div class="slide-caption">Badkamer met inloopdouche</div></div>
+        <div class="slide"><img src="images/project-tuin-4.jpeg" alt="Onderhoudsvriendelijke tuin" loading="lazy"><div class="slide-caption">Onderhoudsvriendelijke tuin</div></div>
+        <div class="slide"><img src="images/project-tuin-5.jpeg" alt="Tuin met terras" loading="lazy"><div class="slide-caption">Tuin met terras</div></div>
       </div>
-      <div class="project-card">
-        <img src="images/project-kozijnen.jpg" data-cms-img="project_2_foto" alt="Kozijnen project">
-        <div class="project-label">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-          <span data-cms="project_2_titel">Kozijnen</span> →
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/project-renovatie.png" data-cms-img="project_3_foto" alt="Renovatie project">
-        <div class="project-label">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03z"/></svg>
-          <span data-cms="project_3_titel">Renovatie</span> →
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/project-schilderwerk.png" data-cms-img="project_4_foto" alt="Schilderwerk project">
-        <div class="project-label">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 4V3c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6h1v4H9v11c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-9h8V4h-3z"/></svg>
-          <span data-cms="project_4_titel">Schilderwerk</span> →
-        </div>
-      </div>
+      <button class="slideshow-arrow prev" type="button" aria-label="Vorige foto">&#8249;</button>
+      <button class="slideshow-arrow next" type="button" aria-label="Volgende foto">&#8250;</button>
+      <div class="slideshow-dots" role="tablist" aria-label="Kies een foto"></div>
     </div>
   </div>
 </section>
@@ -1056,6 +1089,75 @@
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Projecten-slideshow
+  (function() {
+    const root = document.getElementById('projecten-slideshow');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll('.slide'));
+    const dotsWrap = root.querySelector('.slideshow-dots');
+    const prevBtn = root.querySelector('.slideshow-arrow.prev');
+    const nextBtn = root.querySelector('.slideshow-arrow.next');
+    if (slides.length === 0) return;
+
+    let current = 0;
+    let timer = null;
+    const DELAY = 5000;
+
+    // Bouw de dots
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Foto ' + (i + 1) + ' van ' + slides.length);
+      dot.addEventListener('click', () => goTo(i, true));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function show(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(next, DELAY);
+    }
+    function stopTimer() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function goTo(index, manual) {
+      show(index);
+      if (manual) startTimer(); // reset auto-timer bij handmatige bediening
+    }
+
+    nextBtn.addEventListener('click', () => goTo(current + 1, true));
+    prevBtn.addEventListener('click', () => goTo(current - 1, true));
+
+    // Touch / swipe op mobiel
+    let touchX = null;
+    root.addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, {passive: true});
+    root.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const diff = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(diff) > 40) goTo(current + (diff < 0 ? 1 : -1), true);
+      touchX = null;
+    }, {passive: true});
+
+    // Pauzeer bij hover op desktop
+    root.addEventListener('mouseenter', stopTimer);
+    root.addEventListener('mouseleave', startTimer);
+
+    startTimer();
+  })();
 
   async function submitForm(e) {
     e.preventDefault();
