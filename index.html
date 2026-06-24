@@ -423,11 +423,13 @@
     background:var(--donker-card);
     box-shadow:0 8px 30px rgba(0,0,0,0.12);
     touch-action:pan-y;
+    max-width:600px;
+    margin-inline:auto;
   }
   .slideshow-track{
     position:relative;
     width:100%;
-    height:460px;
+    aspect-ratio:1/1;
   }
   .slide{
     position:absolute;inset:0;
@@ -474,11 +476,7 @@
   }
   .slideshow-dot:hover{background:rgba(255,255,255,0.85)}
   .slideshow-dot.active{background:var(--geel);transform:scale(1.25)}
-  @media(max-width:768px){
-    .slideshow-track{height:340px}
-  }
   @media(max-width:520px){
-    .slideshow-track{height:240px}
     .slide-caption{font-size:1.05rem;padding:40px 16px 38px}
     .slideshow-arrow{width:38px;height:38px;font-size:1.4rem}
     .slideshow-arrow.prev{left:10px}
@@ -937,13 +935,11 @@
     <p class="section-sub fade-up">Een greep uit onze uitgevoerde projecten.</p>
     <div class="slideshow fade-up" id="projecten-slideshow" aria-roledescription="carousel" aria-label="Uitgevoerde projecten">
       <div class="slideshow-track">
-        <div class="slide active"><img src="images/project-tuin-panorama-1.jpeg" alt="Complete tuinaanleg met overkapping" loading="lazy"><div class="slide-caption">Complete tuinaanleg met overkapping</div></div>
-        <div class="slide"><img src="images/project-tuin-1.jpeg" alt="Tuinaanleg met sfeerverlichting" loading="lazy"><div class="slide-caption">Tuinaanleg met sfeerverlichting</div></div>
+        <div class="slide active"><img src="images/project-tuin-1.jpeg" alt="Tuinaanleg met sfeerverlichting" loading="lazy"><div class="slide-caption">Tuinaanleg met sfeerverlichting</div></div>
         <div class="slide"><img src="images/project-badkamer-1.jpeg" alt="Badkamerrenovatie" loading="lazy"><div class="slide-caption">Badkamerrenovatie</div></div>
         <div class="slide"><img src="images/project-kozijnen-2.jpeg" alt="Kozijnen vervangen" loading="lazy"><div class="slide-caption">Kozijnen vervangen</div></div>
         <div class="slide"><img src="images/project-tuin-2.jpeg" alt="Strakke tuin met bestrating" loading="lazy"><div class="slide-caption">Strakke tuin met bestrating</div></div>
         <div class="slide"><img src="images/project-renovatie-2.jpeg" alt="Complete renovatie" loading="lazy"><div class="slide-caption">Complete renovatie</div></div>
-        <div class="slide"><img src="images/project-tuin-panorama-2.jpeg" alt="Tuin met overdekte zithoek" loading="lazy"><div class="slide-caption">Tuin met overdekte zithoek</div></div>
         <div class="slide"><img src="images/project-badkamer-2.jpeg" alt="Moderne badkamer" loading="lazy"><div class="slide-caption">Moderne badkamer</div></div>
         <div class="slide"><img src="images/project-vloer.jpeg" alt="Vloer leggen" loading="lazy"><div class="slide-caption">Vloer leggen</div></div>
         <div class="slide"><img src="images/project-tuin-3.jpeg" alt="Tuinaanleg" loading="lazy"><div class="slide-caption">Tuinaanleg</div></div>
