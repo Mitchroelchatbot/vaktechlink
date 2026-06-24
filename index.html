@@ -1323,31 +1323,43 @@
 
 <script>
   // Live Google-reviews via Elfsight-widget.
-  // De statische review-kaarten dienen als directe fallback en verdwijnen
-  // zodra de Elfsight-widget zijn live reviews heeft ingeladen.
+  // - De statische review-kaarten dienen als directe fallback en verdwijnen
+  //   zodra de Elfsight-widget zijn live reviews heeft ingeladen.
+  // - Het "powered by"-strookje onderaan de widget wordt verborgen.
   (function() {
     const fallback = document.getElementById('reviews-fallback');
     const app = document.querySelector('.elfsight-app-3fe18183-2352-4424-b888-e83ddb3b58e4');
-    if (!fallback || !app) return;
+    if (!app) return;
 
+    // Zoekt ook binnen (open) shadow-DOM van de widget.
+    function deepQueryAll(root, selector, acc) {
+      acc = acc || [];
+      try { root.querySelectorAll(selector).forEach(function(e) { acc.push(e); }); } catch (e) {}
+      const all = root.querySelectorAll ? root.querySelectorAll('*') : [];
+      all.forEach(function(el) { if (el.shadowRoot) deepQueryAll(el.shadowRoot, selector, acc); });
+      return acc;
+    }
+    function stripBranding() {
+      deepQueryAll(app, 'a[href*="elfsight.com"]').forEach(function(a) {
+        a.style.display = 'none';
+        const p = a.parentElement; // ook de omliggende footer-rij verbergen
+        if (p && p !== app && p.textContent.trim().length < 80) p.style.display = 'none';
+      });
+    }
     function widgetHasContent() {
       return app.querySelector('iframe, [class*="review"], img') !== null || app.offsetHeight > 40;
     }
-    function hideFallback() {
-      if (widgetHasContent()) {
-        fallback.style.display = 'none';
-        return true;
-      }
-      return false;
+    function tidy() {
+      stripBranding();
+      if (fallback && widgetHasContent()) fallback.style.display = 'none';
     }
-    if (hideFallback()) return;
 
-    const obs = new MutationObserver(function() {
-      if (hideFallback()) obs.disconnect();
-    });
+    tidy();
+    const obs = new MutationObserver(tidy);
     obs.observe(app, { childList: true, subtree: true });
-    // Stop met observeren na 15s; bij geblokkeerde widget blijven de statische kaarten staan.
-    setTimeout(function() { obs.disconnect(); }, 15000);
+    // Blijf even strippen voor late renders; daarna stoppen.
+    const iv = setInterval(stripBranding, 1000);
+    setTimeout(function() { obs.disconnect(); clearInterval(iv); }, 20000);
   })();
 </script>
 
