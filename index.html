@@ -495,6 +495,9 @@
   .review-text{font-size:0.92rem;line-height:1.65;color:var(--grijs);margin-bottom:14px;font-style:italic}
   .review-author{font-weight:700;color:var(--donker);font-size:0.92rem}
   .review-meta{font-size:0.78rem;color:#999;margin-top:2px}
+  /* Snijdt de onderste "powered by"-strook van de Elfsight-widget weg */
+  .reviews-widget-clip{overflow:hidden}
+  .reviews-widget-clip > .elfsight-app-3fe18183-2352-4424-b888-e83ddb3b58e4{display:block;margin-bottom:-46px}
   .google-badge{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--lichtgrijs);border-radius:24px;padding:10px 18px;
@@ -991,7 +994,9 @@
     </div>
     <!-- Elfsight Google Reviews (live) -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-3fe18183-2352-4424-b888-e83ddb3b58e4" data-elfsight-app-lazy></div>
+    <div class="reviews-widget-clip">
+      <div class="elfsight-app-3fe18183-2352-4424-b888-e83ddb3b58e4" data-elfsight-app-lazy></div>
+    </div>
   </div>
 </section>
 
@@ -1323,43 +1328,31 @@
 
 <script>
   // Live Google-reviews via Elfsight-widget.
-  // - De statische review-kaarten dienen als directe fallback en verdwijnen
-  //   zodra de Elfsight-widget zijn live reviews heeft ingeladen.
-  // - Het "powered by"-strookje onderaan de widget wordt verborgen.
+  // De statische review-kaarten dienen als directe fallback en verdwijnen
+  // zodra de Elfsight-widget zijn live reviews heeft ingeladen.
+  // (De "powered by"-strook wordt via CSS .reviews-widget-clip weggesneden.)
   (function() {
     const fallback = document.getElementById('reviews-fallback');
     const app = document.querySelector('.elfsight-app-3fe18183-2352-4424-b888-e83ddb3b58e4');
-    if (!app) return;
+    if (!fallback || !app) return;
 
-    // Zoekt ook binnen (open) shadow-DOM van de widget.
-    function deepQueryAll(root, selector, acc) {
-      acc = acc || [];
-      try { root.querySelectorAll(selector).forEach(function(e) { acc.push(e); }); } catch (e) {}
-      const all = root.querySelectorAll ? root.querySelectorAll('*') : [];
-      all.forEach(function(el) { if (el.shadowRoot) deepQueryAll(el.shadowRoot, selector, acc); });
-      return acc;
-    }
-    function stripBranding() {
-      deepQueryAll(app, 'a[href*="elfsight.com"]').forEach(function(a) {
-        a.style.display = 'none';
-        const p = a.parentElement; // ook de omliggende footer-rij verbergen
-        if (p && p !== app && p.textContent.trim().length < 80) p.style.display = 'none';
-      });
-    }
     function widgetHasContent() {
       return app.querySelector('iframe, [class*="review"], img') !== null || app.offsetHeight > 40;
     }
-    function tidy() {
-      stripBranding();
-      if (fallback && widgetHasContent()) fallback.style.display = 'none';
+    function hideFallback() {
+      if (widgetHasContent()) {
+        fallback.style.display = 'none';
+        return true;
+      }
+      return false;
     }
+    if (hideFallback()) return;
 
-    tidy();
-    const obs = new MutationObserver(tidy);
+    const obs = new MutationObserver(function() {
+      if (hideFallback()) obs.disconnect();
+    });
     obs.observe(app, { childList: true, subtree: true });
-    // Blijf even strippen voor late renders; daarna stoppen.
-    const iv = setInterval(stripBranding, 1000);
-    setTimeout(function() { obs.disconnect(); clearInterval(iv); }, 20000);
+    setTimeout(function() { obs.disconnect(); }, 20000);
   })();
 </script>
 
