@@ -305,6 +305,41 @@
     .lightbox-arrow.next{right:8px}
     .lightbox-close{top:10px;right:12px;width:42px;height:42px}
   }
+  /* AIRCO-ACTIE promo-popup */
+  .promo-popup{
+    position:fixed;inset:0;z-index:2000;
+    display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,0.82);padding:24px;
+    animation:promoFade 0.3s ease;
+  }
+  .promo-popup.open{display:flex}
+  @keyframes promoFade{from{opacity:0}to{opacity:1}}
+  .promo-popup-inner{
+    position:relative;
+    max-width:min(94vw,540px);max-height:92vh;
+    animation:promoPop 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+  @keyframes promoPop{from{opacity:0;transform:scale(0.94) translateY(10px)}to{opacity:1;transform:none}}
+  .promo-popup-link{display:block;line-height:0}
+  .promo-popup-img{
+    display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;
+    border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,0.6);
+  }
+  .promo-popup-close{
+    position:absolute;top:-14px;right:-14px;
+    width:44px;height:44px;border:none;border-radius:50%;
+    background:var(--geel);color:var(--donker);
+    font-size:1.7rem;line-height:1;cursor:pointer;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    transition:background 0.2s,transform 0.15s;
+  }
+  .promo-popup-close:hover{background:var(--wit);transform:scale(1.08)}
+  .promo-popup-close:focus-visible{outline:2px solid var(--wit);outline-offset:2px}
+  @media(max-width:520px){
+    .promo-popup{padding:16px}
+    .promo-popup-close{top:-10px;right:-10px;width:40px;height:40px;font-size:1.5rem}
+  }
   .niks{
     background:var(--donker-card);
     border:2px solid var(--geel);
@@ -1118,6 +1153,16 @@
   </div>
 </footer>
 
+<!-- AIRCO-ACTIE promo-popup (verschijnt eenmaal per sessie; alleen als de flyer-afbeelding bestaat) -->
+<div class="promo-popup" id="promo-popup" role="dialog" aria-modal="true" aria-label="Airco-actie" aria-hidden="true">
+  <div class="promo-popup-inner">
+    <button class="promo-popup-close" type="button" aria-label="Sluiten">&times;</button>
+    <a href="index.html#contact" class="promo-popup-link" id="promo-popup-link">
+      <img class="promo-popup-img" id="promo-popup-img" src="images/airco-actie.jpg" alt="Airco-actie: LG, AUX en Mitsubishi single-split airco's (3,5 kW) inclusief montage en btw. Bel 06 31 55 84 48.">
+    </a>
+  </div>
+</div>
+
 <!-- Lightbox / fotogalerij (herbruikt voor alle diensten) -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotogalerij" aria-hidden="true">
   <button class="lightbox-close" type="button" aria-label="Sluiten">&times;</button>
@@ -1354,6 +1399,45 @@
       }
     });
   }
+</script>
+
+<script>
+  // AIRCO-ACTIE promo-popup: toon eenmaal per sessie, en alleen als de flyer bestaat
+  (function(){
+    var popup = document.getElementById('promo-popup');
+    if (!popup) return;
+    try { if (sessionStorage.getItem('aircoPopupDismissed') === '1') return; } catch(e){}
+
+    var img = document.getElementById('promo-popup-img');
+    var src = img ? img.getAttribute('src') : '';
+    if (!src) return;
+
+    function openPopup(){
+      popup.classList.add('open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup(){
+      popup.classList.remove('open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      try { sessionStorage.setItem('aircoPopupDismissed', '1'); } catch(e){}
+    }
+
+    // Alleen tonen als de afbeelding daadwerkelijk laadt (voorkomt een kapotte popup)
+    var probe = new Image();
+    probe.onload = openPopup;
+    probe.onerror = function(){ /* flyer ontbreekt: popup blijft verborgen */ };
+    probe.src = src;
+
+    popup.querySelector('.promo-popup-close').addEventListener('click', closePopup);
+    popup.addEventListener('click', function(e){ if (e.target === popup) closePopup(); }); // klik op donkere rand sluit
+    var link = document.getElementById('promo-popup-link');
+    if (link) link.addEventListener('click', closePopup); // klik op flyer: sluit + ga naar contact
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && popup.classList.contains('open')) closePopup();
+    });
+  })();
 </script>
 </body>
 </html>
