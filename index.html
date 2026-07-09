@@ -315,30 +315,76 @@
   .promo-popup.open{display:flex}
   @keyframes promoFade{from{opacity:0}to{opacity:1}}
   .promo-popup-inner{
-    position:relative;
-    max-width:min(94vw,540px);max-height:92vh;
+    position:relative;width:min(94vw,520px);max-height:92vh;
+    background:var(--wit);border-radius:14px;overflow-y:auto;
+    box-shadow:0 18px 60px rgba(0,0,0,0.6);
     animation:promoPop 0.35s cubic-bezier(0.16,1,0.3,1);
   }
   @keyframes promoPop{from{opacity:0;transform:scale(0.94) translateY(10px)}to{opacity:1;transform:none}}
-  .promo-popup-link{display:block;line-height:0}
-  .promo-popup-img{
-    display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;
-    border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,0.6);
-  }
   .promo-popup-close{
-    position:absolute;top:-14px;right:-14px;
-    width:44px;height:44px;border:none;border-radius:50%;
-    background:var(--geel);color:var(--donker);
-    font-size:1.7rem;line-height:1;cursor:pointer;font-weight:700;
+    position:absolute;top:12px;right:12px;
+    width:40px;height:40px;border:none;border-radius:50%;
+    background:var(--donker);color:var(--wit);
+    font-size:1.5rem;line-height:1;cursor:pointer;font-weight:700;
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 14px rgba(0,0,0,0.4);
-    transition:background 0.2s,transform 0.15s;
+    box-shadow:0 4px 14px rgba(0,0,0,0.3);
+    transition:background 0.2s,color 0.2s,transform 0.15s;z-index:2;
   }
-  .promo-popup-close:hover{background:var(--wit);transform:scale(1.08)}
-  .promo-popup-close:focus-visible{outline:2px solid var(--wit);outline-offset:2px}
+  .promo-popup-close:hover{background:var(--geel);color:var(--donker);transform:scale(1.08)}
+  .promo-popup-close:focus-visible{outline:2px solid var(--geel);outline-offset:2px}
+  .promo-body{padding:26px 26px 22px;text-align:center}
+  .promo-logo{height:34px;width:auto;display:block;margin:0 auto 14px}
+  .promo-title{
+    font-family:'Barlow Condensed',sans-serif;font-weight:800;
+    font-size:clamp(2.2rem,7vw,3rem);line-height:0.95;
+    color:var(--donker);text-transform:uppercase;letter-spacing:0.01em;
+  }
+  .promo-title span{color:var(--geel)}
+  .promo-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+  .promo-tag{
+    background:var(--lichtgrijs);color:var(--donker);
+    font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em;
+    padding:6px 14px;border-radius:20px;
+  }
+  .promo-tag.geel{background:var(--geel)}
+  .promo-banner{
+    background:var(--geel);color:var(--donker);
+    font-family:'Barlow Condensed',sans-serif;font-weight:800;
+    font-size:clamp(1.15rem,4vw,1.45rem);text-transform:uppercase;
+    padding:9px 12px;margin:16px -26px 0;letter-spacing:0.02em;
+  }
+  .promo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 4px}
+  .promo-card{
+    background:var(--lichtgrijs);border-radius:10px;padding:14px 8px 12px;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+  }
+  .promo-card-brand{font-weight:800;font-size:0.95rem;color:var(--donker);text-transform:uppercase;line-height:1.1}
+  .promo-card-spec{font-size:0.72rem;font-weight:600;color:var(--grijs);text-transform:uppercase;letter-spacing:0.03em}
+  .promo-card-price{
+    margin-top:8px;background:var(--donker);color:var(--wit);
+    font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.35rem;
+    padding:5px 12px;border-radius:6px;white-space:nowrap;
+  }
+  .promo-usps{font-size:0.8rem;color:var(--grijs);font-weight:600;margin-top:10px}
+  .promo-cta{
+    display:inline-block;margin-top:14px;
+    background:var(--geel);color:var(--donker);
+    font-weight:700;font-size:1rem;text-decoration:none;
+    padding:13px 30px;border-radius:8px;
+    transition:background 0.2s,transform 0.1s;
+  }
+  .promo-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  .promo-contact{margin-top:12px;font-size:0.85rem;color:var(--grijs)}
+  .promo-contact a{color:var(--donker);font-weight:700;text-decoration:none}
+  .promo-contact a:hover{color:var(--geel-donker)}
   @media(max-width:520px){
-    .promo-popup{padding:16px}
-    .promo-popup-close{top:-10px;right:-10px;width:40px;height:40px;font-size:1.5rem}
+    .promo-popup{padding:14px}
+    .promo-body{padding:22px 18px 18px}
+    .promo-banner{margin:14px -18px 0}
+    .promo-cards{grid-template-columns:1fr;gap:8px}
+    .promo-card{flex-direction:row;justify-content:space-between;padding:10px 14px}
+    .promo-card-price{margin-top:0;font-size:1.2rem}
+    .promo-card > div:first-child{text-align:left}
   }
   .niks{
     background:var(--donker-card);
@@ -1153,13 +1199,48 @@
   </div>
 </footer>
 
-<!-- AIRCO-ACTIE promo-popup (verschijnt eenmaal per sessie; alleen als de flyer-afbeelding bestaat) -->
+<!-- AIRCO-ACTIE promo-popup (verschijnt eenmaal per sessie, wegklikbaar) -->
 <div class="promo-popup" id="promo-popup" role="dialog" aria-modal="true" aria-label="Airco-actie" aria-hidden="true">
   <div class="promo-popup-inner">
     <button class="promo-popup-close" type="button" aria-label="Sluiten">&times;</button>
-    <a href="index.html#contact" class="promo-popup-link" id="promo-popup-link">
-      <img class="promo-popup-img" id="promo-popup-img" src="images/airco-actie.jpg" alt="Airco-actie: LG, AUX en Mitsubishi single-split airco's (3,5 kW) inclusief montage en btw. Bel 06 31 55 84 48.">
-    </a>
+    <div class="promo-body">
+      <img class="promo-logo" src="images/logo.png" alt="VakTechLink">
+      <div class="promo-title">Airco <span>actie!</span></div>
+      <div class="promo-tags">
+        <span class="promo-tag">❄️ Koelen</span>
+        <span class="promo-tag">☀️ Verwarmen</span>
+        <span class="promo-tag geel">✓ Inclusief montage &amp; btw</span>
+      </div>
+      <div class="promo-banner">2 tot 4 weken geïnstalleerd</div>
+      <div class="promo-cards">
+        <div class="promo-card">
+          <div>
+            <div class="promo-card-brand">LG</div>
+            <div class="promo-card-spec">3.5 kW single split</div>
+          </div>
+          <div class="promo-card-price">€ 2.250,-</div>
+        </div>
+        <div class="promo-card">
+          <div>
+            <div class="promo-card-brand">AUX</div>
+            <div class="promo-card-spec">3.5 kW single split</div>
+          </div>
+          <div class="promo-card-price">€ 1.950,-</div>
+        </div>
+        <div class="promo-card">
+          <div>
+            <div class="promo-card-brand">Mitsubishi</div>
+            <div class="promo-card-spec">3.5 kW single split</div>
+          </div>
+          <div class="promo-card-price">€ 2.450,-</div>
+        </div>
+      </div>
+      <div class="promo-usps">Professioneel gemonteerd &nbsp;·&nbsp; Snel geleverd &nbsp;·&nbsp; Betrouwbaar</div>
+      <a href="index.html#contact" class="promo-cta" id="promo-popup-link">Vraag direct aan →</a>
+      <div class="promo-contact">
+        Bel of mail direct: <a href="tel:+31631558448">06 31 55 84 48</a> &nbsp;·&nbsp; <a href="mailto:info@vaktechlink.nl">info@vaktechlink.nl</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1402,15 +1483,11 @@
 </script>
 
 <script>
-  // AIRCO-ACTIE promo-popup: toon eenmaal per sessie, en alleen als de flyer bestaat
+  // AIRCO-ACTIE promo-popup: toon eenmaal per sessie, wegklikbaar
   (function(){
     var popup = document.getElementById('promo-popup');
     if (!popup) return;
     try { if (sessionStorage.getItem('aircoPopupDismissed') === '1') return; } catch(e){}
-
-    var img = document.getElementById('promo-popup-img');
-    var src = img ? img.getAttribute('src') : '';
-    if (!src) return;
 
     function openPopup(){
       popup.classList.add('open');
@@ -1424,16 +1501,12 @@
       try { sessionStorage.setItem('aircoPopupDismissed', '1'); } catch(e){}
     }
 
-    // Alleen tonen als de afbeelding daadwerkelijk laadt (voorkomt een kapotte popup)
-    var probe = new Image();
-    probe.onload = openPopup;
-    probe.onerror = function(){ /* flyer ontbreekt: popup blijft verborgen */ };
-    probe.src = src;
+    setTimeout(openPopup, 800); // korte pauze zodat de pagina eerst zichtbaar is
 
     popup.querySelector('.promo-popup-close').addEventListener('click', closePopup);
     popup.addEventListener('click', function(e){ if (e.target === popup) closePopup(); }); // klik op donkere rand sluit
     var link = document.getElementById('promo-popup-link');
-    if (link) link.addEventListener('click', closePopup); // klik op flyer: sluit + ga naar contact
+    if (link) link.addEventListener('click', closePopup); // klik op CTA: sluit + ga naar contact
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape' && popup.classList.contains('open')) closePopup();
     });
