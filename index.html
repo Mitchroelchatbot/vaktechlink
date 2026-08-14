@@ -576,6 +576,11 @@
   .review-text{font-size:0.92rem;line-height:1.65;color:var(--grijs);margin-bottom:14px;font-style:italic}
   .review-author{font-weight:700;color:var(--donker);font-size:0.92rem}
   .review-meta{font-size:0.78rem;color:#999;margin-top:2px}
+  .review-card.featured{grid-column:1/-1}
+  .review-plus{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:0.85rem;font-weight:600;color:var(--donker)}
+  .review-plus li::before{content:'+';color:var(--geel);font-weight:800;margin-right:5px}
+  .review-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+  .review-photos img{width:100%;height:130px;object-fit:cover;border-radius:8px;display:block}
   .google-badge{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--lichtgrijs);border-radius:24px;padding:10px 18px;
@@ -697,6 +702,7 @@
     .step-arrow{display:none !important}
     .trust-strip,.werkwijze-strip,.contact-trust{grid-template-columns:1fr 1fr;gap:20px}
     .reviews-grid{grid-template-columns:1fr}
+    .review-photos img{height:100px}
     .contact-inner{grid-template-columns:1fr}
     .form-row{grid-template-columns:1fr}
   }
@@ -1045,29 +1051,46 @@
       Geverifieerde Google Reviews
     </div>
     <div class="reviews-grid fade-up">
+      <div class="review-card featured">
+        <div class="review-stars">★★★★★</div>
+        <ul class="review-plus">
+          <li>Persoonlijk contact</li>
+          <li>Razendsnelle communicatie</li>
+          <li>Brede keuze uit vaklui</li>
+          <li>Denkt mee</li>
+        </ul>
+        <p class="review-text">"Enorm tevreden. Vanaf het eerste contact tot aan de oplevering van het eindproject. Contact is snel en helder. Komt zijn afspraken na en is transparant. Denkt mee en biedt meerdere vaklui aan bij het opstellen van de offerte. Dit heeft enorm bijgedragen aan het maken van de keuze aan wie je het project toevertrouwd. Alle personen die een offerte hebben uitgebracht waren vaklui. Dat maakte de keuze lastig, maar dit eerste contact geeft enorm veel vertrouwen. Dit vertrouwen is dubbel en dwars waargemaakt. Al met al enorm tevreden!"</p>
+        <div class="review-author">Davy Bastiaans</div>
+        <div class="review-meta">juli 2026 · Google</div>
+        <div class="review-photos">
+          <img src="images/project-tuin-panorama-1.jpeg" alt="Tuinproject met veranda en pergola – foto bij review van Davy Bastiaans" loading="lazy">
+          <img src="images/project-tuin-2.jpeg" alt="Houten veranda met verlichting – foto bij review van Davy Bastiaans" loading="lazy">
+          <img src="images/project-tuin-4.jpeg" alt="Pergola en verdiept terras in avondlicht – foto bij review van Davy Bastiaans" loading="lazy">
+        </div>
+      </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"We hebben al ongeveer 2 jaar een fijne en soepele samenwerking, heb voor VakTechLink mooie projecten mogen maken zowel grote als kleine projecten. Zowel binnen als buitenschilderwerk. Communicatie is heel goed, en de afspraken worden nagekomen."</p>
         <div class="review-author">Roger Ferdinandus</div>
-        <div class="review-meta">3 dagen geleden · Google</div>
+        <div class="review-meta">mei 2026 · Google</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Enorm geholpen met onze verbouwing. Fijne en heldere communicatie en een strakke planning."</p>
         <div class="review-author">Constantijn van Duijn</div>
-        <div class="review-meta">16 uur geleden · Google</div>
+        <div class="review-meta">mei 2026 · Google</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Ik ben zeer tevreden over de geïnstalleerde airco. De installateur heeft uitstekend werk verricht en alles zeer netjes afgewerkt. Ook zijn uitleg over de installatie was zeer nuttig. Uitermate tevreden over alles."</p>
         <div class="review-author">Hennie ter Haar</div>
-        <div class="review-meta">20 uur geleden · Google</div>
+        <div class="review-meta">mei 2026 · Google</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Vorig jaar heb ik door VakTechLink de ruimte voor de nieuwe keuken aan laten pakken. Met muren zo vol gaten hield ik mijn hart vast, maar het resultaat is erg mooi geworden. Het contact vooraf ging heel vriendelijk en gemoedelijk. Dezelfde avond kwam er iemand kijken zodat een offerte kon worden gemaakt. Ik ben erg tevreden over het resultaat."</p>
         <div class="review-author">Maartje Madeleine</div>
-        <div class="review-meta">een dag geleden · Google · Local Guide</div>
+        <div class="review-meta">mei 2026 · Google · Local Guide</div>
       </div>
     </div>
   </div>
