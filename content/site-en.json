@@ -1,0 +1,16 @@
+{
+  "hero_titel_regel1": "Your project.",
+  "hero_titel_regel2": "Our tradespeople.",
+  "hero_titel_regel3": "Always the right match.",
+  "hero_tekst": "Your link to trusted tradespeople, for private clients and businesses. We never say no. From air conditioning to painting, from extensions to finishing — we connect you with the right professional from our wide network.",
+  "contact_titel": "Ready to start?",
+  "contact_subtitel": "We will handle the rest.",
+  "project_1_titel": "Extension",
+  "project_1_foto": "/images/project-aanbouw.png",
+  "project_2_titel": "Window frames",
+  "project_2_foto": "/images/project-kozijnen.jpg",
+  "project_3_titel": "Renovation",
+  "project_3_foto": "/images/project-renovatie.png",
+  "project_4_titel": "Painting",
+  "project_4_foto": "/images/project-schilderwerk.png"
+}

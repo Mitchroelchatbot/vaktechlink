@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VakTechLink — Tussenpersoon in de bouw | Vakmanschap Verbindt</title>
 <meta name="description" content="VakTechLink koppelt particulieren en bedrijven aan betrouwbare vakmensen in Zuid-Oost en Oost Brabant. Van aanbouw tot schilderwerk — wij zeggen nooit nee.">
+<link rel="canonical" href="https://www.vaktechlink.nl/">
+<link rel="alternate" hreflang="nl" href="https://www.vaktechlink.nl/">
+<link rel="alternate" hreflang="en" href="https://www.vaktechlink.nl/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.vaktechlink.nl/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -42,6 +46,18 @@
     transition:background 0.2s,transform 0.1s;
   }
   .nav-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  /* Taalwissel NL | EN */
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .lang-switch{display:inline-flex;align-items:center;gap:7px;font-size:0.85rem;font-weight:700;letter-spacing:0.5px}
+  .lang-switch a{text-decoration:none;color:var(--grijs);transition:color 0.2s}
+  .lang-switch a:hover{color:var(--geel)}
+  .lang-switch a.active{color:var(--geel)}
+  .lang-sep{color:#CFCFCF}
+  @media(max-width:420px){
+    nav{padding:0 4%}
+    .nav-right{gap:10px}
+    .nav-cta{padding:10px 14px;font-size:0.78rem}
+  }
 
   /* FOOTER */
   footer{
@@ -695,7 +711,12 @@
     <a href="index.html#reviews">Reviews</a>
     <a href="index.html#contact">Contact</a>
   </div>
-  <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Taal">
+      <a href="/" hreflang="nl" class="active" aria-current="page">NL</a><span class="lang-sep" aria-hidden="true">|</span><a href="/en/" hreflang="en">EN</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+  </div>
 </nav>
 
 
@@ -1310,7 +1331,9 @@
       adres: document.getElementById('f-adres').value.trim(),
       woonplaats: document.getElementById('f-plaats').value.trim(),
       email: email,
-      aanvraag: aanvraag
+      aanvraag: aanvraag,
+      taal: 'NL',
+      _subject: 'Nieuwe aanvraag via VakTechLink'
     };
 
     try {
