@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Algemene Voorwaarden | VakTechLink</title>
 <meta name="description" content="Algemene voorwaarden VakTechLink — tussenpersoon in de bouw">
+<link rel="canonical" href="https://www.vaktechlink.nl/voorwaarden.html">
+<link rel="alternate" hreflang="nl" href="https://www.vaktechlink.nl/voorwaarden.html">
+<link rel="alternate" hreflang="en" href="https://www.vaktechlink.nl/en/terms.html">
+<link rel="alternate" hreflang="x-default" href="https://www.vaktechlink.nl/voorwaarden.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,6 +23,17 @@
   .nav-links a:hover{color:var(--geel)}
   .nav-cta{background:var(--geel);color:var(--donker);padding:11px 22px;border-radius:6px;font-weight:700;text-decoration:none;font-size:0.9rem;transition:background 0.2s,transform 0.1s;}
   .nav-cta:hover{background:var(--geel-donker);transform:translateY(-1px)}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .lang-switch{display:inline-flex;align-items:center;gap:7px;font-size:0.85rem;font-weight:700;letter-spacing:0.5px}
+  .lang-switch a{text-decoration:none;color:var(--grijs);transition:color 0.2s}
+  .lang-switch a:hover{color:var(--geel)}
+  .lang-switch a.active{color:var(--geel)}
+  .lang-sep{color:#CFCFCF}
+  @media(max-width:420px){
+    nav{padding:0 4%}
+    .nav-right{gap:10px}
+    .nav-cta{padding:10px 14px;font-size:0.78rem}
+  }
   footer{background:#141414;padding:48px 5% 24px;color:#999;}
   .footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid #2A2A2A;}
   .footer-brand .footer-logo{display:inline-block;margin-bottom:14px}
@@ -138,7 +153,12 @@
     <a href="index.html#reviews">Reviews</a>
     <a href="index.html#contact">Contact</a>
   </div>
-  <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Taal">
+      <a href="/voorwaarden.html" hreflang="nl" class="active" aria-current="page">NL</a><span class="lang-sep" aria-hidden="true">|</span><a href="/en/terms.html" hreflang="en">EN</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Start jouw project →</a>
+  </div>
 </nav>
 
 
